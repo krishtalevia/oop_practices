@@ -83,6 +83,8 @@ class PassengerPlane:
             print('Самолет взлетел!')
             self.height = 10
 
+        print()
+
     def landing(self):
         if self.height > 0:
             print('Самолет приземлился!')
@@ -90,11 +92,27 @@ class PassengerPlane:
         else:
             print('Самолет находится на земле.')
 
+        print()
+
     def change_height(self):
-        pass
+        new_height = int(input('Введите новую высоту: '))
+
+        self.height = new_height
+        print(f'Самолет теперь летит на высоте {self.height}')
+        print()
 
     def change_velocity(self):
-        pass
+        new_velocity = int(input('Введите новую скорость: '))
+
+        self.velocity = new_velocity
+        print(f'Самолет теперь летит на скорости {self.velocity}')
+        print()
 
     def print_info(self):
-        pass
+        print(f'Производитель: {self.manufacturer}')
+        print(f'Модель: {self.model}')
+        print(f'Вместимость: {self.capacity}')
+        print(f'Кол-во пассажиров: {self.passangers}')
+        print(f'Текущая высота: {self.height}')
+        print(f'Текущая скорость: {self.velocity}')
+
