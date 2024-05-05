@@ -89,4 +89,12 @@ class PassengerPlane:
             self.height = 0
         else:
             print('Самолет находится на земле.')
-    
+
+    def change_height(self):
+        pass
+
+    def change_velocity(self):
+        pass
+
+    def print_info(self):
+        pass
