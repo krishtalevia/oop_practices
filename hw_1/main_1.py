@@ -19,17 +19,6 @@ class Animal:
         print()
 
 
-class Program:
-
-    @staticmethod
-    def main():
-        betty_the_cow = Animal(name='Betty', type='Cow', age=1, sound='Moo')
-
-        betty_the_cow.print_sound()
-        betty_the_cow.print_info()
-
-Program.main()
-
 # №2
 class Book:
 
@@ -53,17 +42,6 @@ class Book:
         print(f'Автор: {self.author}')
         print(f'Кол-во страниц: {self.page_qty}')
         print()
-
-class Program:
-
-    @staticmethod
-    def main():
-        random_book = Book('Интересная книга', 'И.Н. Тересный', 100)
-
-        random_book.open_book()
-        random_book.print_info()
-
-Program.main()
 
 # №3
 class PassengerPlane:
@@ -116,20 +94,6 @@ class PassengerPlane:
         print(f'Текущая высота: {self.height}')
         print(f'Текущая скорость: {self.velocity}')
 
-class Program:
-
-    @staticmethod
-    def main():
-        ses_plane = PassengerPlane('Самолет Engineering School', 'M-1', 100,
-                                    50, 0, 300)
-
-        ses_plane.takeoff()
-        ses_plane.landing()
-        ses_plane.change_height()
-        ses_plane.change_velocity()
-        ses_plane.print_info()
-
-Program.main()
 
 # №4
 class MusicAlbum:
@@ -182,11 +146,34 @@ class Program:
 
     @staticmethod
     def main():
+        # Животное
+        betty_the_cow = Animal(name='Betty', type='Cow', age=1, sound='Moo')
+
+        betty_the_cow.print_sound()
+        betty_the_cow.print_info()
+
+        # Книга
+        random_book = Book('Интересная книга', 'И.Н. Тересный', 100)
+
+        random_book.open_book()
+        random_book.print_info()
+
+        # Самолет
+        ses_plane = PassengerPlane('Самолет Engineering School', 'M-1', 100,
+                                   50, 0, 300)
+
+        ses_plane.takeoff()
+        ses_plane.landing()
+        ses_plane.change_height()
+        ses_plane.change_velocity()
+        ses_plane.print_info()
+        print()
+
+        # Альбом
         muhozhuk = MusicAlbum('Мухожук', 'Я устал',
                               'Фолк треш-метал',
                               ['Моя оборона', 'Золотая чаша', 'От винта'])
 
-        print()
         muhozhuk.add_track()
         muhozhuk.delete_track()
         muhozhuk.play_track()
