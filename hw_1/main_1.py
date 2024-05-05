@@ -33,4 +33,14 @@ Program.main()
 class Book:
 
     def __init__(self, name: str, author: str, page_qty: int):
-        pass
+        self.name = name
+        self.author = author
+        self.page_qty = page_qty
+
+    def open_book(self):
+        page_num = input('Введите номер страницы: ')
+
+        if page_num > self.page_qty or page_num < 0:
+            print('Страницы с таким номером в книге нет.')
+        else:
+            print('Страница открылась.')
