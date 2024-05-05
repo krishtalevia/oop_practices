@@ -42,10 +42,16 @@ class Book:
         page_num = int(input('Введите номер страницы: '))
 
         if page_num > self.page_qty or page_num < 0:
-            print('Страницы с таким номером в книге нет.')
+            print(f'Страницы с таким номером в книге нет.')
         else:
-            print('Страница открылась.')
+            print(f'Страница открылась.')
 
+        print()
+
+    def print_info(self):
+        print(f'Название книги: {self.name}')
+        print(f'Автор: {self.author}')
+        print(f'Кол-во страниц: {self.page_qty}')
         print()
 
 class Program:
@@ -55,6 +61,7 @@ class Program:
         random_book = Book('Интересная книга', 'И.Н. Тересный', 100)
 
         random_book.open_book()
+        random_book.print_info()
 
 Program.main()
 
@@ -62,4 +69,10 @@ Program.main()
 class PassengerPlane:
 
     def __init__(self, manufacturer: str, model: str, capacity: int, passangeres: int, height: int, velocity: int):
-        pass
+        self.manufacturer = manufacturer
+        self.model = model
+        self.capacity = capacity
+        self.passangers = passangeres
+        self.height = height
+        self.velocity = velocity
+
