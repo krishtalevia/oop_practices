@@ -81,5 +81,12 @@ class PassengerPlane:
             print('Самолет уже летит.')
         else:
             print('Самолет взлетел!')
+            self.height = 10
 
+    def landing(self):
+        if self.height > 0:
+            print('Самолет приземлился!')
+            self.height = 0
+        else:
+            print('Самолет находится на земле.')
     
