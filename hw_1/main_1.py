@@ -116,3 +116,17 @@ class PassengerPlane:
         print(f'Текущая высота: {self.height}')
         print(f'Текущая скорость: {self.velocity}')
 
+class Program:
+
+    @staticmethod
+    def main():
+        ses_plane = PassengerPlane('Самолет Engineering School', 'M-1', 100,
+                                    50, 0, 300)
+
+        ses_plane.takeoff()
+        ses_plane.landing()
+        ses_plane.change_height()
+        ses_plane.change_velocity()
+        ses_plane.print_info()
+
+Program.main()
