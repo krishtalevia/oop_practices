@@ -57,3 +57,9 @@ class Program:
         random_book.open_book()
 
 Program.main()
+
+# №3
+class PassengerPlane:
+
+    def __init__(self, manufacturer: str, model: str, capacity: int, passangeres: int, height: int, velocity: int):
+        pass
