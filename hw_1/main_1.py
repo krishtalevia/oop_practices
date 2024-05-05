@@ -141,9 +141,11 @@ class MusicAlbum:
         self.track_list = track_list
 
     def add_track(self):
-        new_track_name = input('Введите название нового трека для добавления:')
+        new_track_name = input('Введите название нового трека для добавления: ')
 
         self.track_list.append(new_track_name)
+        print(f'Трек {new_track_name} был добавлен в альбом!')
+        print()
 
     def delete_track(self):
         delete_track_name = input('Введите название трека для его удаления: ')
@@ -156,6 +158,7 @@ class MusicAlbum:
                 self.track_list.remove(i)
 
         print(res)
+        print()
 
     def play_track(self):
         play_track_name = input('Введите название трека для его воспроизведения: ')
@@ -167,9 +170,28 @@ class MusicAlbum:
                 res = f'О-о... {play_track_name}'
 
         print(res)
+        print()
 
     def print_info(self):
         print(f'Исполнитель: {self.performer}')
         print(f'Название альбома: {self.album_name}')
         print(f'Жанр: {self.genre}')
         print(f'Список треков: {self.track_list}')
+
+class Program:
+
+    @staticmethod
+    def main():
+        muhozhuk = MusicAlbum('Мухожук', 'Я устал',
+                              'Фолк треш-метал',
+                              ['Моя оборона', 'Золотая чаша', 'От винта'])
+
+        print()
+        muhozhuk.add_track()
+        muhozhuk.delete_track()
+        muhozhuk.play_track()
+        muhozhuk.print_info()
+
+Program.main()
+
+
