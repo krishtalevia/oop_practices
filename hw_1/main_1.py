@@ -130,3 +130,21 @@ class Program:
         ses_plane.print_info()
 
 Program.main()
+
+# №4
+class MusicAlbum:
+
+    def __init__(self, performer: str, album_name: str, genre: str, track_list: list):
+        pass
+
+    def add_track(self):
+        pass
+
+    def delete_track(self):
+        pass
+
+    def play_track(self):
+        pass
+
+    def print_info(self):
+        pass
