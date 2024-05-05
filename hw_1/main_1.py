@@ -76,3 +76,10 @@ class PassengerPlane:
         self.height = height
         self.velocity = velocity
 
+    def takeoff(self):
+        if self.height > 0:
+            print('Самолет уже летит.')
+        else:
+            print('Самолет взлетел!')
+
+    
