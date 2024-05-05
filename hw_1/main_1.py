@@ -16,6 +16,7 @@ class Animal:
         print(f'Вид: {self.type}')
         print(f'Возраст: {self.age}')
         print(f'Издаваемый звук: {self.sound}')
+        print()
 
 
 class Program:
@@ -38,9 +39,21 @@ class Book:
         self.page_qty = page_qty
 
     def open_book(self):
-        page_num = input('Введите номер страницы: ')
+        page_num = int(input('Введите номер страницы: '))
 
         if page_num > self.page_qty or page_num < 0:
             print('Страницы с таким номером в книге нет.')
         else:
             print('Страница открылась.')
+
+        print()
+
+class Program:
+
+    @staticmethod
+    def main():
+        random_book = Book('Интересная книга', 'И.Н. Тересный', 100)
+
+        random_book.open_book()
+
+Program.main()
