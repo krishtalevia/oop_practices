@@ -68,11 +68,11 @@ Program.main()
 # №3
 class PassengerPlane:
 
-    def __init__(self, manufacturer: str, model: str, capacity: int, passangeres: int, height: int, velocity: int):
+    def __init__(self, manufacturer: str, model: str, capacity: int, passangers: int, height: int, velocity: int):
         self.manufacturer = manufacturer
         self.model = model
         self.capacity = capacity
-        self.passangers = passangeres
+        self.passangers = passangers
         self.height = height
         self.velocity = velocity
 
@@ -144,17 +144,17 @@ class MusicAlbum:
         new_track_name = input('Введите название нового трека для добавления: ')
 
         self.track_list.append(new_track_name)
-        print(f'Трек {new_track_name} был добавлен в альбом!')
+        print(f'Трек "{new_track_name}" был добавлен в альбом!')
         print()
 
     def delete_track(self):
         delete_track_name = input('Введите название трека для его удаления: ')
 
-        res = f'В альбоме нет трека с названием {delete_track_name}.'
+        res = f'В альбоме нет трека с названием "{delete_track_name}".'
 
         for i in self.track_list:
             if i == delete_track_name:
-                res = f'Трек с названием {delete_track_name} был удален из альбома.'
+                res = f'Трек с названием "{delete_track_name}" был удален из альбома.'
                 self.track_list.remove(i)
 
         print(res)
@@ -163,7 +163,7 @@ class MusicAlbum:
     def play_track(self):
         play_track_name = input('Введите название трека для его воспроизведения: ')
 
-        res = f'В альбоме нет трека с названием {play_track_name}.'
+        res = f'В альбоме нет трека с названием "{play_track_name}".'
 
         for i in self.track_list:
             if i == play_track_name:
