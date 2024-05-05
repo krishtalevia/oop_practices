@@ -135,16 +135,41 @@ Program.main()
 class MusicAlbum:
 
     def __init__(self, performer: str, album_name: str, genre: str, track_list: list):
-        pass
+        self.performer = performer
+        self.album_name = album_name
+        self.genre = genre
+        self.track_list = track_list
 
     def add_track(self):
-        pass
+        new_track_name = input('Введите название нового трека для добавления:')
+
+        self.track_list.append(new_track_name)
 
     def delete_track(self):
-        pass
+        delete_track_name = input('Введите название трека для его удаления: ')
+
+        res = f'В альбоме нет трека с названием {delete_track_name}.'
+
+        for i in self.track_list:
+            if i == delete_track_name:
+                res = f'Трек с названием {delete_track_name} был удален из альбома.'
+                self.track_list.remove(i)
+
+        print(res)
 
     def play_track(self):
-        pass
+        play_track_name = input('Введите название трека для его воспроизведения: ')
+
+        res = f'В альбоме нет трека с названием {play_track_name}.'
+
+        for i in self.track_list:
+            if i == play_track_name:
+                res = f'О-о... {play_track_name}'
+
+        print(res)
 
     def print_info(self):
-        pass
+        print(f'Исполнитель: {self.performer}')
+        print(f'Название альбома: {self.album_name}')
+        print(f'Жанр: {self.genre}')
+        print(f'Список треков: {self.track_list}')
