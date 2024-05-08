@@ -27,15 +27,13 @@ class Book:
         self.author = author
         self.page_qty = page_qty
 
-    def open_book(self):
-        page_num = int(input('Введите номер страницы: '))
+    def open_page(self, number_of_page: int):
+        if not isinstance(number_of_page, int): raise TypeError("TypeError: number_of_page is not an int type")
 
-        if page_num > self.page_qty or page_num < 0:
-            print(f'Страницы с таким номером в книге нет.')
+        if (number_of_page > 0) and (number_of_page <= self.page_qty):
+            print('Страница найдена и открыта.\n')
         else:
-            print(f'Страница открылась.')
-
-        print()
+            print(f'Страницы с таким номером в книге нет.\n')
 
     def print_info(self):
         print(f'Название книги: {self.name}')
@@ -55,36 +53,19 @@ class PassengerPlane:
         self.velocity = velocity
 
     def takeoff(self):
-        if self.height > 0:
-            print('Самолет уже летит.')
-        else:
-            print('Самолет взлетел!')
-            self.height = 10
-
-        print()
+        print('Самолет взлетел!\n')
 
     def landing(self):
-        if self.height > 0:
-            print('Самолет приземлился!')
-            self.height = 0
-        else:
-            print('Самолет находится на земле.')
+        print('Самолет приземлился!\n')
 
-        print()
 
-    def change_height(self):
-        new_height = int(input('Введите новую высоту: '))
-
+    def change_height(self, new_height: int):
         self.height = new_height
-        print(f'Самолет теперь летит на высоте {self.height}')
-        print()
+        print(f'Самолет теперь летит на высоте {self.height}\n')
 
-    def change_velocity(self):
-        new_velocity = int(input('Введите новую скорость: '))
-
+    def change_velocity(self, new_velocity: int):
         self.velocity = new_velocity
-        print(f'Самолет теперь летит на скорости {self.velocity}')
-        print()
+        print(f'Самолет теперь летит на скорости {self.velocity}\n')
 
     def print_info(self):
         print(f'Производитель: {self.manufacturer}')
@@ -92,7 +73,7 @@ class PassengerPlane:
         print(f'Вместимость: {self.capacity}')
         print(f'Кол-во пассажиров: {self.passangers}')
         print(f'Текущая высота: {self.height}')
-        print(f'Текущая скорость: {self.velocity}')
+        print(f'Текущая скорость: {self.velocity}\n')
 
 
 # №4
@@ -104,34 +85,27 @@ class MusicAlbum:
         self.genre = genre
         self.track_list = track_list
 
-    def add_track(self):
-        new_track_name = input('Введите название нового трека для добавления: ')
+    def add_track(self, new_track: str):
+        self.track_list.append(new_track)
+        print(f'Трек "{new_track_name}" был добавлен в альбом!\n')
 
-        self.track_list.append(new_track_name)
-        print(f'Трек "{new_track_name}" был добавлен в альбом!')
-        print()
-
-    def delete_track(self):
-        delete_track_name = input('Введите название трека для его удаления: ')
-
-        res = f'В альбоме нет трека с названием "{delete_track_name}".'
+    def delete_track(self, track_to_delete: str):
+        res = f'В альбоме нет трека с названием "{track_to_delete}".\n'
 
         for i in self.track_list:
-            if i == delete_track_name:
-                res = f'Трек с названием "{delete_track_name}" был удален из альбома.'
+            if i == track_to_delete:
+                res = f'Трек с названием "{track_to_delete}" был удален из альбома.\n'
                 self.track_list.remove(i)
 
         print(res)
         print()
 
-    def play_track(self):
-        play_track_name = input('Введите название трека для его воспроизведения: ')
-
-        res = f'В альбоме нет трека с названием "{play_track_name}".'
+    def play_track(self, track_to_play: str):
+        res = f'В альбоме нет трека с названием "{track_to_play}".\n'
 
         for i in self.track_list:
-            if i == play_track_name:
-                res = f'О-о... {play_track_name}'
+            if i == track_to_play:
+                res = f'О-о... {track_to_play}'
 
         print(res)
         print()
@@ -155,7 +129,7 @@ class Program:
         # Книга
         random_book = Book('Интересная книга', 'И.Н. Тересный', 100)
 
-        random_book.open_book()
+        random_book.open_page(number_of_page=99)
         random_book.print_info()
 
         # Самолет
@@ -164,8 +138,8 @@ class Program:
 
         ses_plane.takeoff()
         ses_plane.landing()
-        ses_plane.change_height()
-        ses_plane.change_velocity()
+        ses_plane.change_height(new_height=10)
+        ses_plane.change_velocity(new_velocity=10)
         ses_plane.print_info()
         print()
 
@@ -174,9 +148,9 @@ class Program:
                               'Фолк треш-метал',
                               ['Моя оборона', 'Золотая чаша', 'От винта'])
 
-        muhozhuk.add_track()
-        muhozhuk.delete_track()
-        muhozhuk.play_track()
+        muhozhuk.add_track(new_track='Новый')
+        muhozhuk.delete_track(track_to_delete='Золотая чаша')
+        muhozhuk.play_track(track_to_play='От винта')
         muhozhuk.print_info()
 
 Program.main()
