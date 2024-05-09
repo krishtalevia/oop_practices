@@ -184,3 +184,28 @@ class ArrayUtils:
 
         return min
 
+class Vector:
+
+    x: float
+    y: float
+    z: float
+
+    def __init__(self, x: float, y: float, z: float):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __add__(self, other):
+        pass
+
+    def __sub__(self):
+        pass
+
+    def __mul__(self, other):
+        pass
+
+    def vector_length_calculation(self):
+        pass
+
+    def __str__(self):
+        pass
