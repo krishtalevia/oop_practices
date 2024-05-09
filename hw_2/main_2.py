@@ -244,13 +244,31 @@ class Fraction:
         self.denumerator = denumerator
 
     def __add__(self, other: Fraction):
-        pass
+        if self.is_denumerator_zero(other):
+            return
+
+        new_numerator = (self.numerator * other.denumerator) + (other.numerator * self.denumerator)
+        new_denumerator = self.denumerator * other.denumerator
+
+        return Fraction(new_numerator, new_denumerator)
 
     def __sub__(self, other: Fraction):
-        pass
+        if self.is_denumerator_zero(other):
+            return
+
+        new_numerator = (self.numerator * other.denumerator) - (other.numerator * self.denumerator)
+        new_denumerator = self.denumerator * other.denumerator
+
+        return Fraction(new_numerator, new_denumerator)
 
     def __mul__(self, other: Fraction):
-        pass
+        if self.is_denumerator_zero(other):
+            return
+
+        new_numerator = self.numerator * other.numerator
+        new_denumerator = self.denumerator * other.denumerator
+
+        return Fraction(new_numerator, new_denumerator)
 
     def is_denumerator_zero(self, other: Fraction):
         if self.denumerator == 0 or other.denumerator == 0:
@@ -260,4 +278,7 @@ class Fraction:
             return
 
     def __str__(self):
-        pass
+        if self.denumerator == 1:
+            return f'{self.denumerator}'
+        else:
+            return f'{self.numerator}/{self.denumerator}'
