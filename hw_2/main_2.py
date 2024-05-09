@@ -131,3 +131,26 @@ class ModelWindow:
                 f'Цвет: {self.color}\n'
                 f'Видимость: {'видимое' if self.visibility == True else 'невидимое'}\n'
                 f'Окно: {'с рамкой' if self.border == True else 'без рамки'}\n')
+
+class ArrayUtils:
+
+    @staticmethod
+    def sum():
+        pass
+
+    @staticmethod
+    def multi():
+        pass
+
+    @staticmethod
+    def inversion():
+        pass
+
+    @staticmethod
+    def max():
+        pass
+    @staticmethod
+    def min():
+        pass
+
+    
