@@ -44,11 +44,11 @@ class ModelWindow:
     horizontal_size: int
     vertical_size: int
     color: str
-    visible: bool
+    visibility: bool
     border: bool
 
     def __init__(self, title: str, left_upper_corner_coor_x: int, left_upper_corner_coor_y: int,
-                 horizontal_size: int, vertical_size: int, color: str, visible: bool, border: bool):
+                 horizontal_size: int, vertical_size: int, color: str, visibility: bool, border: bool):
         pass
 
 # window = ModelWindow('window', 1000, 500, 500,
@@ -74,20 +74,49 @@ class ModelWindow:
             print(f'Операция выполнена, окно передвинулось на'
                   f'{pixels_coor_y} пикселей', 'вверх\n' if (pixels_coor_y) > 0 else 'вниз\n')
 
+        self.left_upper_corner_coor_y = self.left_upper_corner_coor_y + pixels_coor_y
 
-    def change_height_width(self):
-        pass
+    def change_height_width(self, height = 0, width = 0):
+        if height != 0:
+            if ((height + self.vertical_size) + self.left_upper_corner_coor_y > 1080 or
+                (height + self.vertical_size) + self.left_upper_corner_coor_y < 0):
+                print('При выполнении операции окно вышло за границы экрана по высоте.')
+                print('Операция не была выполнена.\n')
+            else:
+                print('Окно', 'увеличено' if height > 0 else 'уменьшено', f'на {height}\n')
+
+                self.vertical_size = self.vertical_size + height
+
+        if width != 0:
+            if ((width + self.horizontal_size) + self.left_upper_corner_coor_x > 1960 or
+                    (width + self.horizontal_size) + self.left_upper_corner_coor_x < 0):
+                print('При выполнении операции окно вышло за границы экрана по широте.')
+                print('Операция не была выполнена.\n')
+            else:
+                print('Окно', 'увеличено' if width > 0 else 'уменьшено', f'на {width}\n')
+
+                self.horizontal_size = self.horizontal_size + width
 
     def change_color(self, color: str):
         print(f'Цвет сменился с {self.color} на {color}')
 
         self.color = color
 
-    def change_state(self):
-        pass
+    def change_state(self, visibility: bool, border: bool):
+        print('--Окно теперь имеет следующие параметры--')
+        print(f'Видимость:', 'видимое' if visibility == True else 'невидимое')
+        print(f'Рамка:', 'с рамкой' if border == True else 'без рамки')
 
-    def window_state_status(self):
-        pass
+        self.visibility = visibility
+        self.border = border
+
+    def state_status(self, visibility: bool, border: bool):
+        if visibility == True:
+            print(f'Состояние видимости окна:', 'видимое'
+            if self.visibility == True else 'невидимое')
+        if border == True:
+            print(f'Состояние рамки окна:', 'с рамкой'
+            if self.border == True else 'без рамки')
 
     def __str__(self):
         pass
