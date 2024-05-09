@@ -13,12 +13,13 @@ class Patient:
         self.disease = disease
 
     def make_an_appointment(self, day: int, month: str, time_hour: int, time_minutes: int):
-        print(f'{self.full_name}, Вы записаны на прием на {day} {month}, в {time_hour}:{time_minutes}')
+        print(f'{self.full_name}, Вы записаны на прием на {day} {month}, в {time_hour}:{time_minutes}\n')
 
     def print_info(self):
         print(f'ФИО: {self.full_name}')
         print(f'Возраст: {self.age}')
         print(f'Заболевание: {self.full_name}')
+        print()
 
 class TouristSpot:
 
@@ -32,12 +33,13 @@ class TouristSpot:
         self.type = type
 
     def visit(self, visiter_name: str):
-        print(f'{visiter_name} посетил {self.name}, знаменитая {self.type} достопримечательность')
+        print(f'{visiter_name} посетил {self.name}, это знаменитая {self.type} достопримечательность\n')
 
     def print_info(self):
         print(f'Название: {self.name}')
         print(f'Страна: {self.country}')
         print(f'Тип достопримечательности: {self.type}')
+        print()
 
 class ModelWindow:
 
@@ -63,23 +65,23 @@ class ModelWindow:
 
     def move_by_horizontal(self, pixels_coor_x: int):
         if (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_x) > 1960 or
-                self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_x) < 0):
+                self.left_upper_corner_coor_x + pixels_coor_x < 0):
             print('При выполнении операции окно вышло за границы экрана по горизонтали.')
             print('Операция не была выполнена.\n')
         else:
             print(f'Операция выполнена, окно передвинулось на'
-                  f'{pixels_coor_x} пикселей', 'вправо\n' if (pixels_coor_x) > 0 else 'влево\n')
+                  f' {pixels_coor_x} пикселей', 'вправо\n' if (pixels_coor_x) > 0 else 'влево\n')
 
         self.left_upper_corner_coor_x = self.left_upper_corner_coor_x + pixels_coor_x
 
     def move_by_vertical(self, pixels_coor_y: int):
         if (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_y) > 1080 or
-                self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_y) < 0):
+                self.left_upper_corner_coor_x + pixels_coor_y < 0):
             print('При выполнении операции окно вышло за границы экрана по вертикали.')
             print('Операция не была выполнена.\n')
         else:
             print(f'Операция выполнена, окно передвинулось на'
-                  f'{pixels_coor_y} пикселей', 'вверх\n' if (pixels_coor_y) > 0 else 'вниз\n')
+                  f' {pixels_coor_y} пикселей', 'вверх\n' if (pixels_coor_y) > 0 else 'вниз\n')
 
         self.left_upper_corner_coor_y = self.left_upper_corner_coor_y + pixels_coor_y
 
@@ -105,14 +107,14 @@ class ModelWindow:
                 self.horizontal_size = self.horizontal_size + width
 
     def change_color(self, color: str):
-        print(f'Цвет сменился с {self.color} на {color}')
+        print(f'Цвет сменился с {self.color} на {color}\n')
 
         self.color = color
 
     def change_state(self, visibility: bool, border: bool):
         print('--Окно теперь имеет следующие параметры--')
         print(f'Видимость:', 'видимое' if visibility == True else 'невидимое')
-        print(f'Рамка:', 'с рамкой' if border == True else 'без рамки')
+        print(f'Рамка:', 'с рамкой' if border == True else 'без рамки\n')
 
         self.visibility = visibility
         self.border = border
@@ -122,8 +124,8 @@ class ModelWindow:
             print(f'Состояние видимости окна:', 'видимое'
             if self.visibility == True else 'невидимое')
         if border == True:
-            print(f'Состояние рамки окна:', 'с рамкой'
-            if self.border == True else 'без рамки')
+            print(f'Состояние рамки окна:', 'с рамкой\n'
+            if self.border == True else 'без рамки\n')
 
     def __str__(self):
         return (f'Заголовок: {self.title}\n'
@@ -142,8 +144,7 @@ class ArrayUtils:
         sum = 0
 
         for i in range(0, len(array), 1):
-            if array[i].isdigit():
-                sum += array[i]
+            sum += array[i]
 
         return sum
 
@@ -152,8 +153,7 @@ class ArrayUtils:
         multi = 1
 
         for i in range(0, len(array), 1):
-            if array[i].isdigit():
-                multi *= array[i]
+            multi *= array[i]
 
         return multi
 
@@ -170,9 +170,8 @@ class ArrayUtils:
         max = array[0]
 
         for i in range(0, len(array), 1):
-            if array[i].isdigit():
-                if max < array[i]:
-                    max = array[i]
+            if max < array[i]:
+                max = array[i]
 
         return max
 
@@ -181,9 +180,8 @@ class ArrayUtils:
         min = array[0]
 
         for i in range(0, len(array), 1):
-            if array[i].isdigit():
-                if min > array[i]:
-                    min = array[i]
+            if min > array[i]:
+                min = array[i]
 
         return min
 
@@ -228,12 +226,12 @@ class Vector:
 
 
     def calculate_length(self):
-        length = (self.x ** 2, self.y ** 2, self.z ** 2) ** 0.5
+        length = (self.x ** 2 + self.y ** 2 + self.z ** 2) ** 0.5
 
         return length
 
     def __str__(self):
-        return f'({self.x, self.y, self.z})'
+        return f'{self.x, self.y, self.z}'
 
 class Fraction:
 
@@ -308,6 +306,8 @@ class GeometryUtils:
     def calculate_rectangle_perimeter(length: float, width: float):
         rectangle_perimeter = 2 * (length * width)
 
+        return rectangle_perimeter
+
     @staticmethod
     def calculate_triangle_area_Heron_formula(a: float, b: float, c: float):
         semiperimeter = 0.5 * (a + b + c)
@@ -315,3 +315,105 @@ class GeometryUtils:
         triangle_area = (semiperimeter * (semiperimeter - a) * (semiperimeter - b) * (semiperimeter - c)) ** 0.5
 
         return triangle_area
+
+class Program:
+
+    @staticmethod
+    def main():
+        # Пациент
+        sick = Patient('Златопольский Дмитрий Михайлович', 50, 'Икота')
+
+        sick.make_an_appointment( 30, 'Июня', 12, 30)
+        sick.print_info()
+
+        # Туристическая достопримечательность
+        obelisk = TouristSpot('Обелиск', 'Куба', 'историческая')
+
+        obelisk.visit('Златопольский Дмитрий Михайлович')
+        obelisk.print_info()
+
+        # Окно
+        window = ModelWindow('Окно', 100, 600, 200,
+                             200, 'Белый', True, True)
+
+        window.move_by_horizontal(100)
+        window.move_by_vertical(100)
+        window.change_height_width(0,100)
+        window.change_color('Зеленый')
+        window.change_state(False, True)
+        window.state_status(True, True)
+        print(window)
+
+        # Массив
+        array = [1,2,3,4]
+        print('Исходный массив:', array)
+
+        sum = ArrayUtils.sum(array)
+        print('Сумма:', sum)
+
+        multi = ArrayUtils.multi(array)
+        print('Произведение:', multi)
+
+        inversion = ArrayUtils.inversion(array)
+        print('Инверсия:', inversion)
+
+        max = ArrayUtils.max(array)
+        print('Макс. элемент:', max)
+
+        min = ArrayUtils.min(array)
+        print('Мин. элемент:', min)
+        print()
+
+        # Вектор
+        vector_1 = Vector(1, 2, 3)
+        vector_2 = Vector(3, 2, 1)
+        print('1-й вектор:', vector_1)
+        print('2-й вектор:', vector_2)
+
+        vector_3 = vector_1 + vector_2
+        print('Сложение:', vector_3)
+
+        vector_3 = vector_1 - vector_2
+        print('Вычитание:',vector_3)
+
+        vector_3 = vector_1 * vector_2
+        print('Произведение:',vector_3)
+
+        length = vector_2.calculate_length()
+        print(length)
+
+        # Дробь
+        first_fraction = Fraction(6,3)
+        second_fraction = Fraction(2,6)
+        print('Первая дробь:', first_fraction)
+        print('Вторая дробь:', second_fraction)
+
+        third_fraction = first_fraction + second_fraction
+        print('Сложение:', third_fraction)
+
+        third_fraction = first_fraction - second_fraction
+        print('Вычитание:',third_fraction)
+
+        third_fraction = first_fraction * second_fraction
+        print('Произведение:',third_fraction)
+
+
+
+        # Геометрия
+        circle_area = GeometryUtils.calculate_circle_area(3)
+        print('Площадь круга:', circle_area)
+
+        circle_perimeter = GeometryUtils.calculate_circle_perimeter(3)
+        print('Периметр круга:', circle_perimeter)
+
+        rectangle_area = GeometryUtils.calculate_rectangle_area(5, 3)
+        print('Площадь прямоугольника:', rectangle_area)
+
+        rectangle_perimeter = GeometryUtils.calculate_rectangle_perimeter(5, 3)
+        print('Площадь прямоугольника:', rectangle_perimeter)
+
+        triangle_area = GeometryUtils.calculate_triangle_area_Heron_formula(3, 3, 3)
+        print('Площадь треугольника:', triangle_area)
+
+Program.main()
+
