@@ -35,3 +35,38 @@ class TouristSpot:
         print(f'Название: {self.name}')
         print(f'Страна: {self.country}')
         print(f'Тип достопримечательности: {self.type}')
+
+class ModelWindow:
+
+    title: str
+    left_upper_corner_coor: int
+    horizontal_size: int
+    vertical_size: int
+    color: str
+    visible: bool
+    border: bool
+
+    def __init__(self, title: str, left_upper_corner_coor: int, horizontal_size: int,
+                 vertical_size: int, color: str, visible: bool, border: bool):
+        pass
+
+    def moving_by_horizontal(self):
+        pass
+
+    def moving_by_vertical(self):
+        pass
+
+    def change_height_width(self):
+        pass
+
+    def change_color(self):
+        pass
+
+    def change_state(self):
+        pass
+
+    def window_state_status(self):
+        pass
+
+    def __str__(self):
+        pass
