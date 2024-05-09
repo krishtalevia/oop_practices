@@ -49,10 +49,14 @@ class ModelWindow:
 
     def __init__(self, title: str, left_upper_corner_coor_x: int, left_upper_corner_coor_y: int,
                  horizontal_size: int, vertical_size: int, color: str, visibility: bool, border: bool):
-        pass
-
-# window = ModelWindow('window', 1000, 500, 500,
-#                      500, 'white', True, True)
+        self.title = title
+        self.left_upper_corner_coor_x = left_upper_corner_coor_x
+        self.left_upper_corner_coor_y = left_upper_corner_coor_y
+        self.horizontal_size = horizontal_size
+        self.vertical_size = vertical_size
+        self.color = color
+        self.visibility = visibility
+        self.border = border
 
     def move_by_horizontal(self, pixels_coor_x: int):
         if (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_x) > 1960 or
@@ -119,4 +123,11 @@ class ModelWindow:
             if self.border == True else 'без рамки')
 
     def __str__(self):
-        pass
+        return (f'Заголовок: {self.title}\n'
+                f'Координата левого верхнего угла x: {self.left_upper_corner_coor_x}\n'
+                f'Координата левого верхнего угла y: {self.left_upper_corner_coor_y}\n'
+                f'Размер по горизонтали: {self.horizontal_size}\n'
+                f'Размер по вертикали: {self.vertical_size}\n'
+                f'Цвет: {self.color}\n'
+                f'Видимость: {'видимое' if self.visibility == True else 'невидимое'}\n'
+                f'Окно: {'с рамкой' if self.border == True else 'без рамки'}\n')
