@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 class Patient:
 
     full_name: str
@@ -195,17 +197,39 @@ class Vector:
         self.y = y
         self.z = z
 
-    def __add__(self, other):
-        pass
+    def __add__(self, other: Vector):
+        new_x = self.x + other.x
+        new_y = self.y + other.y
+        new_z = self.z + other.z
 
-    def __sub__(self):
-        pass
+        return Vector(new_x, new_y, new_z)
+
+    def __sub__(self, other: Vector):
+        new_x = self.x - other.x
+        new_y = self.y - other.y
+        new_z = self.z - other.z
+
+        return Vector(new_x, new_y, new_z)
 
     def __mul__(self, other):
-        pass
+        if isinstance(other, Vector):
+            new_x = self.x * other.x
+            new_y = self.y * other.y
+            new_z = self.z * other.z
 
-    def vector_length_calculation(self):
-        pass
+            return Vector(new_x, new_y, new_z)
+        else:
+            new_x = self.x * other
+            new_y = self.y * other
+            new_z = self.z * other
+
+            return Vector(new_x, new_y, new_z)
+
+
+    def length_calculation(self):
+        length = (self.x ** 2, self.y ** 2, self.z ** 2) ** 0.5
+
+        return length
 
     def __str__(self):
-        pass
+        return f'({self.x, self.y, self.z})'
