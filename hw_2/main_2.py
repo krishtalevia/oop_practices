@@ -233,3 +233,31 @@ class Vector:
 
     def __str__(self):
         return f'({self.x, self.y, self.z})'
+
+class Fraction:
+
+    numerator: int
+    denumerator: int
+
+    def __init__(self, numerator: int, denumerator: int):
+        self.numerator = numerator
+        self.denumerator = denumerator
+
+    def __add__(self, other: Fraction):
+        pass
+
+    def __sub__(self, other: Fraction):
+        pass
+
+    def __mul__(self, other: Fraction):
+        pass
+
+    def is_denumerator_zero(self, other: Fraction):
+        if self.denumerator == 0 or other.denumerator == 0:
+            print('Знаменатель не может быть равен нулю.')
+            return True
+        else:
+            return
+
+    def __str__(self):
+        pass
