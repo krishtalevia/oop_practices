@@ -39,28 +39,49 @@ class TouristSpot:
 class ModelWindow:
 
     title: str
-    left_upper_corner_coor: int
+    left_upper_corner_coor_x: int
+    left_upper_corner_coor_y: int
     horizontal_size: int
     vertical_size: int
     color: str
     visible: bool
     border: bool
 
-    def __init__(self, title: str, left_upper_corner_coor: int, horizontal_size: int,
-                 vertical_size: int, color: str, visible: bool, border: bool):
+    def __init__(self, title: str, left_upper_corner_coor_x: int, left_upper_corner_coor_y: int,
+                 horizontal_size: int, vertical_size: int, color: str, visible: bool, border: bool):
         pass
 
-    def moving_by_horizontal(self):
-        pass
+# window = ModelWindow('window', 1000, 500, 500,
+#                      500, 'white', True, True)
 
-    def moving_by_vertical(self):
-        pass
+    def move_by_horizontal(self, pixels_coor_x: int):
+        if (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_x) > 1960 or
+                self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_x) < 0):
+            print('При выполнении операции окно вышло за границы экрана по горизонтали.')
+            print('Операция не была выполнена.\n')
+        else:
+            print(f'Операция выполнена, окно передвинулось на'
+                  f'{pixels_coor_x} пикселей', 'вправо\n' if (pixels_coor_x) > 0 else 'влево\n')
+
+        self.left_upper_corner_coor_x = self.left_upper_corner_coor_x + pixels_coor_x
+
+    def move_by_vertical(self, pixels_coor_y: int):
+        if (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_y) > 1080 or
+                self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_y) < 0):
+            print('При выполнении операции окно вышло за границы экрана по вертикали.')
+            print('Операция не была выполнена.\n')
+        else:
+            print(f'Операция выполнена, окно передвинулось на'
+                  f'{pixels_coor_y} пикселей', 'вверх\n' if (pixels_coor_y) > 0 else 'вниз\n')
+
 
     def change_height_width(self):
         pass
 
-    def change_color(self):
-        pass
+    def change_color(self, color: str):
+        print(f'Цвет сменился с {self.color} на {color}')
+
+        self.color = color
 
     def change_state(self):
         pass
