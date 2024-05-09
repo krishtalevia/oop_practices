@@ -135,22 +135,52 @@ class ModelWindow:
 class ArrayUtils:
 
     @staticmethod
-    def sum():
-        pass
+    def sum(array: list):
+        sum = 0
+
+        for i in range(0, len(array), 1):
+            if array[i].isdigit():
+                sum += array[i]
+
+        return sum
 
     @staticmethod
-    def multi():
-        pass
+    def multi(array: list):
+        multi = 1
+
+        for i in range(0, len(array), 1):
+            if array[i].isdigit():
+                multi *= array[i]
+
+        return multi
 
     @staticmethod
-    def inversion():
-        pass
+    def inversion(array: list):
+        inversed_array = []
+        for i in range(len(array) -1, -1, -1):
+            inversed_array.append(array[i])
+
+        return inversed_array
 
     @staticmethod
-    def max():
-        pass
-    @staticmethod
-    def min():
-        pass
+    def max(array: list):
+        max = array[0]
 
-    
+        for i in range(0, len(array), 1):
+            if array[i].isdigit():
+                if max < array[i]:
+                    max = array[i]
+
+        return max
+
+    @staticmethod
+    def min(array: list):
+        min = array[0]
+
+        for i in range(0, len(array), 1):
+            if array[i].isdigit():
+                if min > array[i]:
+                    min = array[i]
+
+        return min
+
