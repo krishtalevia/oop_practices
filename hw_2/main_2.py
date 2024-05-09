@@ -16,3 +16,14 @@ class Patient:
         print(f'ФИО: {self.full_name}')
         print(f'Возраст: {self.age}')
         print(f'Заболевание: {self.full_name}')
+
+class TouristSpot:
+
+    def __init__(self, name: str, country: str, type: str):
+        pass
+
+    def visit(self, visiter_name: str):
+        pass
+
+    def print_info(self):
+        pass
