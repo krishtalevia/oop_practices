@@ -397,8 +397,6 @@ class Program:
         third_fraction = first_fraction * second_fraction
         print('Произведение:',third_fraction)
 
-
-
         # Геометрия
         circle_area = GeometryUtils.calculate_circle_area(3)
         print('Площадь круга:', circle_area)
