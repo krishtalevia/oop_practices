@@ -3,22 +3,28 @@ import math
 
 class Patient:
 
-    full_name: str
+    first_name: str
+    last_name: str
+    surname: str
     age: int
     disease: str
 
-    def __init__(self, full_name: str, age: int, disease: str):
-        self.full_name = full_name
+    def __init__(self, first_name: str, last_name: str, surname: str, age: int, disease: str):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.surname = surname
         self.age = age
         self.disease = disease
 
     def make_an_appointment(self, day: int, month: str, time_hour: int, time_minutes: int):
-        print(f'{self.full_name}, Вы записаны на прием на {day} {month}, в {time_hour}:{time_minutes}\n')
+        print(f'{self.first_name} {self.surname}, Вы записаны на прием на {day} {month}, в {time_hour}:{time_minutes}\n')
 
     def print_info(self):
-        print(f'ФИО: {self.full_name}')
+        print(f'Имя: {self.first_name}')
+        print(f'Фамилия: {self.last_name}')
+        print(f'Отчество: {self.surname}')
         print(f'Возраст: {self.age}')
-        print(f'Заболевание: {self.full_name}')
+        print(f'Заболевание: {self.disease}')
         print()
 
 class TouristSpot:
@@ -321,7 +327,7 @@ class Program:
     @staticmethod
     def main():
         # Пациент
-        sick = Patient('Златопольский Дмитрий Михайлович', 50, 'Икота')
+        sick = Patient('Дмитрий', 'Златопольский', 'Михайлович', 50, 'Икота')
 
         sick.make_an_appointment( 30, 'Июня', 12, 30)
         sick.print_info()
