@@ -9,8 +9,10 @@ class Patient:
         self.age = age
         self.disease = disease
 
-    def make_an_appointment(self):
-        pass
+    def make_an_appointment(self, day: int, month: str, time_hour: int, time_minutes: int):
+        print(f'{self.full_name}, Вы записаны на прием на {day} {month}, в {time_hour}:{time_minutes}')
 
     def print_info(self):
-        pass
+        print(f'ФИО: {self.full_name}')
+        print(f'Возраст: {self.age}')
+        print(f'Заболевание: {self.full_name}')
