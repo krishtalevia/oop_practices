@@ -226,7 +226,7 @@ class Vector:
             return Vector(new_x, new_y, new_z)
 
 
-    def length_calculation(self):
+    def calculate_length(self):
         length = (self.x ** 2, self.y ** 2, self.z ** 2) ** 0.5
 
         return length
@@ -282,3 +282,25 @@ class Fraction:
             return f'{self.denumerator}'
         else:
             return f'{self.numerator}/{self.denumerator}'
+
+class GeometryUtils:
+
+    @staticmethod
+    def calculate_circle_area():
+        pass
+
+    @staticmethod
+    def calculate_circle_perimeter():
+        pass
+
+    @staticmethod
+    def calculate_rectangle_area():
+        pass
+
+    @staticmethod
+    def calculate_rectangle_perimeter():
+        pass
+
+    @staticmethod
+    def calculate_triangle_area_Heron_formula():
+        pass
