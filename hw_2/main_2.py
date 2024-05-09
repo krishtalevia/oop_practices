@@ -19,11 +19,19 @@ class Patient:
 
 class TouristSpot:
 
+    name: str
+    country: str
+    type: str
+
     def __init__(self, name: str, country: str, type: str):
-        pass
+        self.name = name
+        self.country = country
+        self.type = type
 
     def visit(self, visiter_name: str):
-        pass
+        print(f'{visiter_name} посетил {self.name}, знаменитая {self.type} достопримечательность')
 
     def print_info(self):
-        pass
+        print(f'Название: {self.full_name}')
+        print(f'Страна: {self.age}')
+        print(f'Тип достопримечательности: {self.full_name}')
