@@ -1,4 +1,5 @@
 from __future__ import annotations
+import math
 
 class Patient:
 
@@ -286,21 +287,31 @@ class Fraction:
 class GeometryUtils:
 
     @staticmethod
-    def calculate_circle_area():
-        pass
+    def calculate_circle_area(circle_radius: float):
+        circle_area = math.pi * (circle_radius ** 2)
+
+        return circle_area
 
     @staticmethod
-    def calculate_circle_perimeter():
-        pass
+    def calculate_circle_perimeter(circle_radius):
+        circle_perimeter = (2 * math.pi) * circle_radius
+
+        return circle_perimeter
 
     @staticmethod
-    def calculate_rectangle_area():
-        pass
+    def calculate_rectangle_area(length: float, width: float):
+        rectangle_area = length * width
+
+        return rectangle_area
 
     @staticmethod
-    def calculate_rectangle_perimeter():
-        pass
+    def calculate_rectangle_perimeter(length: float, width: float):
+        rectangle_perimeter = 2 * (length * width)
 
     @staticmethod
-    def calculate_triangle_area_Heron_formula():
-        pass
+    def calculate_triangle_area_Heron_formula(a: float, b: float, c: float):
+        semiperimeter = 0.5 * (a + b + c)
+
+        triangle_area = (semiperimeter * (semiperimeter - a) * (semiperimeter - b) * (semiperimeter - c)) ** 0.5
+
+        return triangle_area
