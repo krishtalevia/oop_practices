@@ -32,6 +32,6 @@ class TouristSpot:
         print(f'{visiter_name} посетил {self.name}, знаменитая {self.type} достопримечательность')
 
     def print_info(self):
-        print(f'Название: {self.full_name}')
-        print(f'Страна: {self.age}')
-        print(f'Тип достопримечательности: {self.full_name}')
+        print(f'Название: {self.name}')
+        print(f'Страна: {self.country}')
+        print(f'Тип достопримечательности: {self.type}')
