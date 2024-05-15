@@ -210,11 +210,11 @@ class Library:
             user.remove_book(book)
 
     def get_books_status(self) -> str:
-        books_list = ''
+        books_status = ''
 
         for i in self.books_list:
-            books_list += i
-            books_list += '\n'
+            books_status += i
+            books_status += '\n'
 
         return books_list
 
@@ -276,6 +276,14 @@ class Book:
 
         self.genre = genre
 
+    def __str__(self):
+        return (f'Название: {self.name}'
+                f'Автор: {self.name}'
+                f'Год издания: {self.name}'
+                f'Жанр: {self.name}'
+                f'Наличие: {self.name}'
+                f'Пользователь: {self.name}')
+
 class User:
 
     def __str__(self, name: str, ticket_number: int, owned_books: list):
@@ -284,25 +292,28 @@ class User:
         self.owned_books = owned_books
 
     def add_book(self, book: Book):
+        if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
+
         self.owned_books.append(book)
 
     def remove_book(self, book: Book):
+        if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
+
         for i in range(0, len(self.owned_books), 1):
             if self.owned_books[i] == book:
                 del self.owned_books[i]
                 break
 
+    def get_books_status(self) -> str:
+        books_status = ''
 
-# def test():
-#     list = [1,2,3,4,5]
-#     all_digs = ''
-#
-#     for i in list:
-#         all_digs += str(i)
-#         all_digs += '\n'
-#
-#     return all_digs
-#
-# test2= test()
-#
-# print(test2)
+        for i in self.owned_books:
+            books_status += i
+            books_status += '\n'
+
+        return books_status
+
+    def __str__(self):
+        return (f'Имя: {self.name}'
+                f'Номер билета: {self.ticket_number}'
+                f'Список взятых книг: {self.owned_books}')
