@@ -159,3 +159,11 @@ class Potion:
                 f'Сложность приготовления: {self.difficulty}\n'
                 f'Эффект зелья: {self.effect}\n'
                 f'Приготовлено ли?: {self.ready_status}\n')
+
+class Library:
+
+    def __init__(self, name: str, adress: str, books_list: list, users_list: list):
+        self.name = name
+        self.adress = adress
+        self.books_list = books_list
+        self.users_list = users_list
