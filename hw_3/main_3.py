@@ -132,7 +132,7 @@ class Potion:
         if not isinstance(ingredient, str): raise TypeError('Не подходящий тип данных')
 
         if ingredient in self.ingredients:
-            for i in range(0, self.ingredients, 1):
+            for i in range(0, len(self.ingredients), 1):
                 if self.ingredients[i] == ingredient:
                     del self.ingredients[i]
                     break
@@ -195,7 +195,7 @@ class Library:
         if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
         if not isinstance(user, User): raise TypeError('Не подходящий тип данных')
 
-        if book in self.books.list and book.in_stock == True:
+        if book in self.books_list and book.in_stock == True:
             book.set_stock_status(False)
             book.set_current_user(user)
             user.add_book(book)
@@ -213,16 +213,16 @@ class Library:
         books_status = ''
 
         for i in self.books_list:
-            books_status += i
+            books_status += str(i)
             books_status += '\n'
 
-        return books_list
+        return books_status
 
     def get_users_status(self) -> str:
         users_list = ''
 
         for i in self.users_list:
-            users_list += i
+            users_list += str(i)
             users_list += '\n'
 
         return users_list
@@ -277,16 +277,16 @@ class Book:
         self.genre = genre
 
     def __str__(self):
-        return (f'Название: {self.name}'
-                f'Автор: {self.name}'
-                f'Год издания: {self.name}'
-                f'Жанр: {self.name}'
-                f'Наличие: {self.name}'
-                f'Пользователь: {self.name}')
+        return (f'Название: {self.name}\n'
+                f'Автор: {self.author}\n'
+                f'Год издания: {self.year}\n'
+                f'Жанр: {self.genre}\n'
+                f'Наличие: {self.in_stock}\n'
+                f'Пользователь: {self.current_user}\n')
 
 class User:
 
-    def __str__(self, name: str, ticket_number: int, owned_books: list):
+    def __init__(self, name: str, ticket_number: int, owned_books: list):
         self.name = name
         self.ticket_number = ticket_number
         self.owned_books = owned_books
@@ -308,12 +308,78 @@ class User:
         books_status = ''
 
         for i in self.owned_books:
-            books_status += i
+            books_status += str(i)
             books_status += '\n'
 
         return books_status
 
     def __str__(self):
-        return (f'Имя: {self.name}'
-                f'Номер билета: {self.ticket_number}'
-                f'Список взятых книг: {self.owned_books}')
+        return (f'Имя: {self.name}\n'
+                f'Номер билета: {self.ticket_number}\n'
+                f'Список взятых книг: {self.owned_books}\n')
+
+class Program:
+
+    @staticmethod
+    def main():
+        # Авто
+        loaf_car = Car('УАЗ', '452', 1970,
+                       'Белый', 50000, True, 199)
+
+        color = loaf_car.get_color()
+        print(color)
+        loaf_car.set_color('Красный')
+        loaf_car.set_engine_status(False)
+        print(loaf_car)
+        print()
+
+        # Смартфон
+        phone = Smartphone('Samsung', 'S24', 'Android', 256,
+                           12, 10, True)
+
+        phone.set_turned_on_status(False)
+        phone.set_os('ios')
+        phone.install_app(100.0)
+        print(phone)
+
+        # Зелье
+        heal_potion = Potion('Зелье здоровья', ['Мёд', 'Лимон', 'Чеснок'],
+                             3, 'Лечит', True)
+
+        heal_potion.add_ingredient('Крапива')
+        heal_potion.del_ingredients('Чеснок')
+        heal_potion.get_ingredients()
+        print()
+        print(heal_potion)
+
+        # Библиотека
+
+
+        funtik = Book('Фунтик', 'Шульжик В.', 2020, 'Детская', True, None)
+        hegels_phenomenology = Book('Феноменология духа', 'Фридрих Гегель', 1807,
+                                    'Философия', True, None)
+
+        dubrovskiy = Book('Дубровский', 'А.С. Пушкин', 1841,
+                          'Роман', True, None)
+
+        ivan = User('Иван', 9, [])
+        oleg = User('Олег', 10, [])
+
+
+        lenin_library = Library('Библиотека им. Ленина', 'Москва, улица Воздвиженка, 3/5',
+                                [funtik, hegels_phenomenology],None)
+
+
+        lenin_library.add_book(dubrovskiy)
+        books_status = lenin_library.get_books_status()
+        print(books_status)
+
+        lenin_library.issue_book(funtik, oleg)
+        lenin_library.issue_book(hegels_phenomenology, oleg)
+        lenin_library.issue_book(dubrovskiy, ivan)
+
+        print()
+        oleg_book_status = oleg.get_books_status()
+        print(oleg_book_status)
+
+Program.main()
