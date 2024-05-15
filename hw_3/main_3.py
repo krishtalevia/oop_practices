@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 class Car:
 
     def __init__(self, brand: str, model: str, manufacture_year: int,
@@ -207,17 +209,29 @@ class Library:
             book.set_current_user(None)
             user.remove_book(book)
 
-    @staticmethod
-    def get_books_status() -> str:
-        pass
+    def get_books_status(self) -> str:
+        books_list = ''
 
-    @staticmethod
-    def get_users_status() -> str:
-        pass
+        for i in self.books_list:
+            books_list += i
+            books_list += '\n'
+
+        return books_list
+
+    def get_users_status(self) -> str:
+        users_list = ''
+
+        for i in self.users_list:
+            users_list += i
+            users_list += '\n'
+
+        return users_list
 
     def __str__(self):
-        pass
-
+        return (f'Название: {self.name}'
+                f'Адрес: {self.adress}'
+                f'Список книг: {self.users_list}'
+                f'Список пользователей: {self.books_list}')
 
 class Book:
 
@@ -232,11 +246,35 @@ class Book:
     def get_stock_status(self):
         return self.in_stock
 
+    def get_name(self):
+        return self.name
+
+    def get_author(self):
+        return self.author
+
+    def get_year(self):
+        return self.year
+
+    def get_genre(self):
+        return self.genre
+
+    def get_current_user(self):
+        return self.current_user
+
     def set_stock_status(self, status: bool):
+        if not isinstance(status, bool): raise TypeError('Не подходящий тип данных')
+
         self.in_stock = status
 
     def set_current_user(self, user: User):
+        if not isinstance(user, User): raise TypeError('Не подходящий тип данных')
+
         self.current_user = user
+
+    def set_genre(self, genre: str):
+        if not isinstance(genre, str): raise TypeError('Не подходящий тип данных')
+
+        self.genre = genre
 
 class User:
 
@@ -254,3 +292,17 @@ class User:
                 del self.owned_books[i]
                 break
 
+
+# def test():
+#     list = [1,2,3,4,5]
+#     all_digs = ''
+#
+#     for i in list:
+#         all_digs += str(i)
+#         all_digs += '\n'
+#
+#     return all_digs
+#
+# test2= test()
+#
+# print(test2)
