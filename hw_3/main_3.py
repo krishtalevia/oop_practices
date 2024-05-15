@@ -167,3 +167,13 @@ class Library:
         self.adress = adress
         self.books_list = books_list
         self.users_list = users_list
+
+class Book:
+
+    def __init__(self, name: str, author: str, year: int, genre: str, in_stock: bool, current_user: User):
+        self.name = name
+        self.author = author
+        self.year = year
+        self.genre = genre
+        self.in_stock = in_stock
+        self.current_user = current_user
