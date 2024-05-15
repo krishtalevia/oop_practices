@@ -177,3 +177,11 @@ class Book:
         self.genre = genre
         self.in_stock = in_stock
         self.current_user = current_user
+
+class User:
+
+    def __str__(self, name: str, ticket_number: int, owned_books: list):
+        self.name = name
+        self.ticket_number = ticket_number
+        self.owned_books = owned_books
+        
