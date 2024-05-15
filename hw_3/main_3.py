@@ -169,19 +169,43 @@ class Library:
         self.users_list = users_list
 
     def add_book(self, book: Book):
-        pass
+        if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
+
+        if book not in self.books_list:
+            self.books_list.append(book)
 
     def remove_book(self, book: Book):
-        pass
+        if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
+
+        if book in self.books_list:
+            for i in range(0, len(self.books_list), 1):
+                if self.books_list[i] == book:
+                    del self.books_list[i]
+                    break
 
     def register_user(self, user: User):
-        pass
+        if not isinstance(user, User): raise TypeError('Не подходящий тип данных')
+
+        if user not in self.users_list:
+            self.users_list.append(user)
 
     def issue_book(self, book: Book, user: User):
-        pass
+        if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
+        if not isinstance(user, User): raise TypeError('Не подходящий тип данных')
+
+        if book in self.books.list and book.in_stock == True:
+            book.set_stock_status(False)
+            book.set_current_user(user)
+            user.add_book(book)
 
     def return_book(self, book: Book, user: User):
-        pass
+        if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
+        if not isinstance(user, User): raise TypeError('Не подходящий тип данных')
+
+        if book in self.books_list and book.in_stock == False:
+            book.set_stock_status(True)
+            book.set_current_user(None)
+            user.remove_book(book)
 
     @staticmethod
     def get_books_status() -> str:
@@ -205,9 +229,28 @@ class Book:
         self.in_stock = in_stock
         self.current_user = current_user
 
+    def get_stock_status(self):
+        return self.in_stock
+
+    def set_stock_status(self, status: bool):
+        self.in_stock = status
+
+    def set_current_user(self, user: User):
+        self.current_user = user
+
 class User:
 
     def __str__(self, name: str, ticket_number: int, owned_books: list):
         self.name = name
         self.ticket_number = ticket_number
         self.owned_books = owned_books
+
+    def add_book(self, book: Book):
+        self.owned_books.append(book)
+
+    def remove_book(self, book: Book):
+        for i in range(0, len(self.owned_books), 1):
+            if self.owned_books[i] == book:
+                del self.owned_books[i]
+                break
+
