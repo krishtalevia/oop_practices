@@ -168,6 +168,33 @@ class Library:
         self.books_list = books_list
         self.users_list = users_list
 
+    def add_book(self, book: Book):
+        pass
+
+    def remove_book(self, book: Book):
+        pass
+
+    def register_user(self, user: User):
+        pass
+
+    def issue_book(self, book: Book, user: User):
+        pass
+
+    def return_book(self, book: Book, user: User):
+        pass
+
+    @staticmethod
+    def get_books_status() -> str:
+        pass
+
+    @staticmethod
+    def get_users_status() -> str:
+        pass
+
+    def __str__(self):
+        pass
+
+
 class Book:
 
     def __init__(self, name: str, author: str, year: int, genre: str, in_stock: bool, current_user: User):
@@ -184,4 +211,3 @@ class User:
         self.name = name
         self.ticket_number = ticket_number
         self.owned_books = owned_books
-        
