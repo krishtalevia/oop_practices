@@ -1,8 +1,8 @@
 from __future__ import annotations
 import math
 
-class Patient:
 
+class Patient:
     first_name: str
     last_name: str
     surname: str
@@ -17,7 +17,8 @@ class Patient:
         self.disease = disease
 
     def make_an_appointment(self, day: int, month: str, time_hour: int, time_minutes: int):
-        print(f'{self.first_name} {self.surname}, Вы записаны на прием на {day} {month}, в {time_hour}:{time_minutes}\n')
+        print(
+            f'{self.first_name} {self.surname}, Вы записаны на прием на {day} {month}, в {time_hour}:{time_minutes}\n')
 
     def print_info(self):
         print(f'Имя: {self.first_name}')
@@ -27,8 +28,8 @@ class Patient:
         print(f'Заболевание: {self.disease}')
         print()
 
-class TouristSpot:
 
+class TouristSpot:
     name: str
     country: str
     type: str
@@ -47,8 +48,8 @@ class TouristSpot:
         print(f'Тип достопримечательности: {self.type}')
         print()
 
-class ModelWindow:
 
+class ModelWindow:
     title: str
     left_upper_corner_coor_x: int
     left_upper_corner_coor_y: int
@@ -70,68 +71,58 @@ class ModelWindow:
         self.border = border
 
     def move_by_horizontal(self, pixels_coor_x: int):
-        if (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_x) > 1960 or
-                self.left_upper_corner_coor_x + pixels_coor_x < 0):
-            print('При выполнении операции окно вышло за границы экрана по горизонтали.')
-            print('Операция не была выполнена.\n')
-        else:
-            print(f'Операция выполнена, окно передвинулось на'
-                  f' {pixels_coor_x} пикселей', 'вправо\n' if (pixels_coor_x) > 0 else 'влево\n')
+        if not isinstance(pixels_coor_x, int): raise TypeError('Не подходящий тип данных')
 
-        self.left_upper_corner_coor_x = self.left_upper_corner_coor_x + pixels_coor_x
+        if not (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_x) > 1960 or
+                self.left_upper_corner_coor_x + pixels_coor_x < 0):
+
+            self.left_upper_corner_coor_x = self.left_upper_corner_coor_x + pixels_coor_x
 
     def move_by_vertical(self, pixels_coor_y: int):
-        if (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_y) > 1080 or
+        if not isinstance(pixels_coor_y, int): raise TypeError('Не подходящий тип данных')
+
+        if not (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_y) > 1080 or
                 self.left_upper_corner_coor_x + pixels_coor_y < 0):
-            print('При выполнении операции окно вышло за границы экрана по вертикали.')
-            print('Операция не была выполнена.\n')
-        else:
-            print(f'Операция выполнена, окно передвинулось на'
-                  f' {pixels_coor_y} пикселей', 'вверх\n' if (pixels_coor_y) > 0 else 'вниз\n')
 
-        self.left_upper_corner_coor_y = self.left_upper_corner_coor_y + pixels_coor_y
+            self.left_upper_corner_coor_y = self.left_upper_corner_coor_y + pixels_coor_y
 
-    def change_height_width(self, height = 0, width = 0):
-        if height != 0:
-            if ((height + self.vertical_size) + self.left_upper_corner_coor_y > 1080 or
-                (height + self.vertical_size) + self.left_upper_corner_coor_y < 0):
-                print('При выполнении операции окно вышло за границы экрана по высоте.')
-                print('Операция не была выполнена.\n')
-            else:
-                print('Окно', 'увеличено' if height > 0 else 'уменьшено', f'на {height}\n')
+    def set_vertical_size(self, vertical_size: int):
+        if not isinstance(vertical_size, int): raise TypeError('Не подходящий тип данных')
 
-                self.vertical_size = self.vertical_size + height
+        if not ((vertical_size) + self.left_upper_corner_coor_y > 1080 or
+                vertical_size + self.left_upper_corner_coor_y < 0):
 
-        if width != 0:
-            if ((width + self.horizontal_size) + self.left_upper_corner_coor_x > 1960 or
-                    (width + self.horizontal_size) + self.left_upper_corner_coor_x < 0):
-                print('При выполнении операции окно вышло за границы экрана по широте.')
-                print('Операция не была выполнена.\n')
-            else:
-                print('Окно', 'увеличено' if width > 0 else 'уменьшено', f'на {width}\n')
+            self.vertical_size = vertical_size
 
-                self.horizontal_size = self.horizontal_size + width
 
-    def change_color(self, color: str):
-        print(f'Цвет сменился с {self.color} на {color}\n')
+
+    def set_horizontal_size(self, horizontal_size: int):
+        if not isinstance(horizontal_size, int): raise TypeError('Не подходящий тип данных')
+
+        if not ((horizontal_size + self.horizontal_size) + self.left_upper_corner_coor_x > 1960 or
+                    horizontal_size  + self.left_upper_corner_coor_x < 0):
+
+                self.horizontal_size = horizontal_size
+
+    def set_color(self, color: str):
+        if not isinstance(color, str): raise TypeError('Не подходящий тип данных')
 
         self.color = color
 
-    def change_state(self, visibility: bool, border: bool):
-        print('--Окно теперь имеет следующие параметры--')
-        print(f'Видимость:', 'видимое' if visibility == True else 'невидимое')
-        print(f'Рамка:', 'с рамкой' if border == True else 'без рамки\n')
+    def set_visibility(self, visibility: bool):
+        if not isinstance(visibility, bool): raise TypeError('Не подходящий тип данных')
 
         self.visibility = visibility
+
+    def set_border(self, border: bool):
+        if not isinstance(border, bool): raise TypeError('Не подходящий тип данных')
         self.border = border
 
-    def state_status(self, visibility: bool, border: bool):
-        if visibility == True:
-            print(f'Состояние видимости окна:', 'видимое'
-            if self.visibility == True else 'невидимое')
-        if border == True:
-            print(f'Состояние рамки окна:', 'с рамкой\n'
-            if self.border == True else 'без рамки\n')
+    def get_visibility(self):
+        return self.visibility
+
+    def get_border(self):
+        return self.border
 
     def __str__(self):
         return (f'Заголовок: {self.title}\n'
@@ -166,7 +157,7 @@ class ArrayUtils:
     @staticmethod
     def inversion(array: list):
         inversed_array = []
-        for i in range(len(array) -1, -1, -1):
+        for i in range(len(array) - 1, -1, -1):
             inversed_array.append(array[i])
 
         return inversed_array
@@ -191,8 +182,8 @@ class ArrayUtils:
 
         return min
 
-class Vector:
 
+class Vector:
     x: float
     y: float
     z: float
@@ -222,14 +213,12 @@ class Vector:
             new_y = self.y * other.y
             new_z = self.z * other.z
 
-            return Vector(new_x, new_y, new_z)
         else:
             new_x = self.x * other
             new_y = self.y * other
             new_z = self.z * other
 
-            return Vector(new_x, new_y, new_z)
-
+        return Vector(new_x, new_y, new_z)
 
     def calculate_length(self):
         length = (self.x ** 2 + self.y ** 2 + self.z ** 2) ** 0.5
@@ -239,8 +228,8 @@ class Vector:
     def __str__(self):
         return f'{self.x, self.y, self.z}'
 
-class Fraction:
 
+class Fraction:
     numerator: int
     denumerator: int
 
@@ -288,6 +277,7 @@ class Fraction:
         else:
             return f'{self.numerator}/{self.denumerator}'
 
+
 class GeometryUtils:
 
     @staticmethod
@@ -322,6 +312,7 @@ class GeometryUtils:
 
         return triangle_area
 
+
 class Program:
 
     @staticmethod
@@ -329,7 +320,7 @@ class Program:
         # Пациент
         sick = Patient('Дмитрий', 'Златопольский', 'Михайлович', 50, 'Икота')
 
-        sick.make_an_appointment( 30, 'Июня', 12, 30)
+        sick.make_an_appointment(30, 'Июня', 12, 30)
         sick.print_info()
 
         # Туристическая достопримечательность
@@ -344,14 +335,14 @@ class Program:
 
         window.move_by_horizontal(100)
         window.move_by_vertical(100)
-        window.change_height_width(0,100)
+        window.change_height_width(0, 100)
         window.change_color('Зеленый')
         window.change_state(False, True)
         window.state_status(True, True)
         print(window)
 
         # Массив
-        array = [1,2,3,4]
+        array = [1, 2, 3, 4]
         print('Исходный массив:', array)
 
         sum = ArrayUtils.sum(array)
@@ -380,17 +371,17 @@ class Program:
         print('Сложение:', vector_3)
 
         vector_3 = vector_1 - vector_2
-        print('Вычитание:',vector_3)
+        print('Вычитание:', vector_3)
 
         vector_3 = vector_1 * vector_2
-        print('Произведение:',vector_3)
+        print('Произведение:', vector_3)
 
         length = vector_2.calculate_length()
         print(length)
 
         # Дробь
-        first_fraction = Fraction(6,3)
-        second_fraction = Fraction(2,6)
+        first_fraction = Fraction(6, 3)
+        second_fraction = Fraction(2, 6)
         print('Первая дробь:', first_fraction)
         print('Вторая дробь:', second_fraction)
 
@@ -398,10 +389,10 @@ class Program:
         print('Сложение:', third_fraction)
 
         third_fraction = first_fraction - second_fraction
-        print('Вычитание:',third_fraction)
+        print('Вычитание:', third_fraction)
 
         third_fraction = first_fraction * second_fraction
-        print('Произведение:',third_fraction)
+        print('Произведение:', third_fraction)
 
         # Геометрия
         circle_area = GeometryUtils.calculate_circle_area(3)
@@ -419,5 +410,5 @@ class Program:
         triangle_area = GeometryUtils.calculate_triangle_area_Heron_formula(3, 3, 3)
         print('Площадь треугольника:', triangle_area)
 
-Program.main()
 
+Program.main()
