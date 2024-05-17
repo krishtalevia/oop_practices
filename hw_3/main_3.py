@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+
 class Car:
 
     def __init__(self, brand: str, model: str, manufacture_year: int,
@@ -114,6 +115,7 @@ class Smartphone:
                 f'Заряд батареи: {self.battery_charge}\n'
                 f'Включен ли телефон: {self.turned_on_status}\n')
 
+
 class Potion:
 
     def __init__(self, name: str, ingredients: list, difficulty: int, effect: str, ready_status: bool):
@@ -167,9 +169,11 @@ class Library:
     def __init__(self, name: str, adress: str, books_list: list, users_list: list):
         self.name = name
         self.adress = adress
+        self.books_list = books_list
         if books_list is None:
             self.books_list = []
-        
+
+        self.users_list = users_list
         if users_list is None:
             self.users_list = []
 
@@ -231,10 +235,11 @@ class Library:
         return users_list
 
     def __str__(self):
-        return (f'Название: {self.name}'
-                f'Адрес: {self.adress}'
-                f'Список книг: {self.users_list}'
-                f'Список пользователей: {self.books_list}')
+        return (f'Название: {self.name}\n'
+                f'Адрес: {self.adress}\n'
+                f'Список книг: {self.books_list}\n'
+                f'Список пользователей: {self.users_list}\n')
+
 
 class Book:
 
@@ -280,12 +285,13 @@ class Book:
         self.genre = genre
 
     def __str__(self):
-        return (f'Название: {self.name}\n'
+        return (f'\nНазвание: {self.name}\n'
                 f'Автор: {self.author}\n'
                 f'Год издания: {self.year}\n'
                 f'Жанр: {self.genre}\n'
                 f'Наличие: {self.in_stock}\n'
                 f'Пользователь: {self.current_user}\n')
+
 
 class User:
 
@@ -300,14 +306,14 @@ class User:
     def add_book(self, book: Book):
         if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
 
-        self.owned_books.append(book)
+        self.books_list.append(book)
 
     def remove_book(self, book: Book):
         if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
 
-        for i in range(0, len(self.owned_books), 1):
-            if self.owned_books[i] == book:
-                del self.owned_books[i]
+        for i in range(0, len(self.books_list), 1):
+            if self.books_list[i] == book:
+                del self.books_list[i]
                 break
 
     def get_books_status(self) -> str:
@@ -320,9 +326,9 @@ class User:
         return books_status
 
     def __str__(self):
-        return (f'Имя: {self.name}\n'
+        return (f'\nИмя: {self.name}\n'
                 f'Номер билета: {self.ticket_number}\n'
-                f'Список взятых книг: {self.owned_books}\n')
+                f'Список взятых книг: {self.books_list}\n')
 
 class Program:
 
@@ -360,7 +366,6 @@ class Program:
 
         # Библиотека
 
-
         funtik = Book('Фунтик', 'Шульжик В.', 2020, 'Детская', True, None)
         hegels_phenomenology = Book('Феноменология духа', 'Фридрих Гегель', 1807,
                                     'Философия', True, None)
@@ -371,21 +376,17 @@ class Program:
         ivan = User('Иван', 9, [])
         oleg = User('Олег', 10, [])
 
-
         lenin_library = Library('Библиотека им. Ленина', 'Москва, улица Воздвиженка, 3/5',
-                                [funtik, hegels_phenomenology],None)
-
+                                [funtik, hegels_phenomenology], None)
 
         lenin_library.add_book(dubrovskiy)
-        books_status = lenin_library.get_books_status()
-        print(books_status)
+        print(lenin_library)
 
         lenin_library.issue_book(funtik, oleg)
         lenin_library.issue_book(hegels_phenomenology, oleg)
         lenin_library.issue_book(dubrovskiy, ivan)
-
+        print(oleg)
         print()
-        oleg_book_status = oleg.get_books_status()
-        print(oleg_book_status)
+
 
 Program.main()
