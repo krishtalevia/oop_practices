@@ -167,8 +167,11 @@ class Library:
     def __init__(self, name: str, adress: str, books_list: list, users_list: list):
         self.name = name
         self.adress = adress
-        self.books_list = books_list
-        self.users_list = users_list
+        if books_list is None:
+            self.books_list = []
+        
+        if users_list is None:
+            self.users_list = []
 
     def add_book(self, book: Book):
         if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
@@ -286,10 +289,13 @@ class Book:
 
 class User:
 
-    def __init__(self, name: str, ticket_number: int, owned_books: list):
+    def __init__(self, name: str, ticket_number: int, books_list: list):
         self.name = name
         self.ticket_number = ticket_number
-        self.owned_books = owned_books
+        if books_list is None:
+            self.books_list = []
+        else:
+            self.books_list = books_list
 
     def add_book(self, book: Book):
         if not isinstance(book, Book): raise TypeError('Не подходящий тип данных')
