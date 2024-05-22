@@ -3,7 +3,7 @@ from __future__ import annotations
 # 1.1
 class Wizard:
 
-    def __init__(self, name: str, house: str, magic_level: int, spells: list, status: bool):
+    def __init__(self, name: str, house: str, magic_level: int, spells: list, status: str):
         self.__name = name
         self.__house = house
         self.__magic_level = magic_level
@@ -27,3 +27,13 @@ class Wizard:
 
     def get_status(self):
         return self.__status
+
+    def set_house(self, house: str):
+        self.__house = house
+
+    def set_magic_level(self, magic_level: int):
+        self.__magic_level = magic_level
+
+    def set_status(self, status: str):
+        self.__status = status
+
