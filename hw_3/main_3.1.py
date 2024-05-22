@@ -64,4 +64,17 @@ class Wizard:
             self.__magic_level += amount
 
     def __str__(self):
-        pass
+        return (f'Имя: {self.__name}\n'
+                f'Факультет: {self.__house}\n'
+                f'Уровень маг. силы: {self.__magic_level}\n'
+                f'Список заклинаний: {self.__spells}\n'
+                f'Статус: {self.__status}')
+
+# 1.2
+class Spell:
+
+    def __init__(self, name: str, level: int, type: str, description: str):
+        self.__name = name
+        self.__level = level
+        self.__type = type
+        self.__description = description
