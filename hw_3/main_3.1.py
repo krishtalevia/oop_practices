@@ -92,13 +92,28 @@ class Spell:
         return self.__description
 
     def set_name(self, name: str):
+        if not isinstance(name, str): raise ('Не подходящий тип данных.')
+
         self.__name = name
 
     def set_level(self, level: int):
-        self.__level = level
+        if not isinstance(level, int): raise ('Не подходящий тип данных.')
+
+        if level <= 10 and level >= 0:
+            self.__level = level
 
     def set_type(self, type: str):
+        if not isinstance(type, str): raise ('Не подходящий тип данных.')
+
         self.__type = type
 
     def set_description(self, description: str):
+        if not isinstance(description, str): raise ('Не подходящий тип данных.')
+
         self.__description = description
+
+    def __str__(self):
+        return (f'Название: {self.__name}\n'
+                f'Уровень сложности: {self.__level}\n'
+                f'Тип заклинания: {self.__type}\n'
+                f'Описание: {self.__description}\n')
