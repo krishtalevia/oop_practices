@@ -29,11 +29,39 @@ class Wizard:
         return self.__status
 
     def set_house(self, house: str):
+        if not isinstance(house, str): raise ('Не подходящий тип данных.')
+
         self.__house = house
 
     def set_magic_level(self, magic_level: int):
-        self.__magic_level = magic_level
+        if not isinstance(magic_level, int): raise ('Не подходящий тип данных.')
+
+        if magic_level > 0:
+            self.__magic_level = magic_level
 
     def set_status(self, status: str):
+        if not isinstance(status, str): raise ('Не подходящий тип данных.')
+
         self.__status = status
 
+    def add_spell(self, spell: Spell):
+        if not isinstance(spell, Spell): raise('Не подходящий тип данных.')
+
+        self.__spells.append(spell)
+
+    def remove_spell(self, spell: Spell):
+        if not isinstance(spell, Spell): raise ('Не подходящий тип данных.')
+
+        for i in range(0, len(self.__spells), 1):
+            if self.__spells[i] == spell:
+                del self.__spells[i]
+                break
+
+    def increase_magic_level(self, amount: int):
+        if not isinstance(amount, int): raise ('Не подходящий тип данных.')
+
+        if amount > 0:
+            self.__magic_level += amount
+
+    def __str__(self):
+        pass
