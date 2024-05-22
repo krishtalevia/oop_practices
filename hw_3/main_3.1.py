@@ -90,3 +90,15 @@ class Spell:
 
     def get_description(self):
         return self.__description
+
+    def set_name(self, name: str):
+        self.__name = name
+
+    def set_level(self, level: int):
+        self.__level = level
+
+    def set_type(self, type: str):
+        self.__type = type
+
+    def set_description(self, description: str):
+        self.__description = description
