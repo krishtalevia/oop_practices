@@ -78,3 +78,15 @@ class Spell:
         self.__level = level
         self.__type = type
         self.__description = description
+
+    def get_name(self):
+        return self.__name
+
+    def get_level(self):
+        return self.__level
+
+    def get_type(self):
+        return self.__type
+
+    def get_description(self):
+        return self.__description
