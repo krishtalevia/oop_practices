@@ -92,23 +92,23 @@ class Spell:
         return self.__description
 
     def set_name(self, name: str):
-        if not isinstance(name, str): raise ('Не подходящий тип данных.')
+        if not isinstance(name, str): raise('Не подходящий тип данных.')
 
         self.__name = name
 
     def set_level(self, level: int):
-        if not isinstance(level, int): raise ('Не подходящий тип данных.')
+        if not isinstance(level, int): raise('Не подходящий тип данных.')
 
         if level <= 10 and level >= 0:
             self.__level = level
 
     def set_type(self, type: str):
-        if not isinstance(type, str): raise ('Не подходящий тип данных.')
+        if not isinstance(type, str): raise('Не подходящий тип данных.')
 
         self.__type = type
 
     def set_description(self, description: str):
-        if not isinstance(description, str): raise ('Не подходящий тип данных.')
+        if not isinstance(description, str): raise('Не подходящий тип данных.')
 
         self.__description = description
 
@@ -134,19 +134,44 @@ class Employee:
             self.__projects = projects
 
     def get_name(self):
-        pass
+        return self.__name
 
     def get_position(self):
-        pass
+        return self.__position
 
     def get_department(self):
-        pass
+        return self.__department
 
     def get_salary(self):
-        pass
+        return self.__salary
 
     def get_experience(self):
-        pass
+        return self.__experience
 
     def get_projects(self):
-        pass
+        return self.__projects
+
+    def set_name(self, name: str):
+        if not isinstance(name, str): raise('Не подходящий тип данных.')
+
+        self.__name = name
+
+    def set_position(self, position: str):
+        if not isinstance(position, str): raise('Не подходящий тип данных.')
+
+        self.__position = position
+
+    def set_department(self, department: str):
+        if not isinstance(department, str): raise('Не подходящий тип данных.')
+
+        self.__department = department
+
+    def set_salary(self, salary: float):
+        if not isinstance(salary, float): raise('Не подходящий тип данных.')
+
+        self.__salary = salary
+
+    def set_experience(self, experience: int):
+        if not isinstance(experience, int): raise('Не подходящий тип данных.')
+
+        self.__experience = experience
