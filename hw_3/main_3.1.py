@@ -117,3 +117,36 @@ class Spell:
                 f'Уровень сложности: {self.__level}\n'
                 f'Тип заклинания: {self.__type}\n'
                 f'Описание: {self.__description}\n')
+
+# 2
+
+class Employee:
+
+    def __init__(self, name: str, position: str, department: str, salary: float, experience: int, projects: list):
+        self.__name = name
+        self.__position = position
+        self.__department = department
+        self.__salary = salary
+        self.__experience = experience
+        if projects == None:
+            self.__projects = []
+        else:
+            self.__projects = projects
+
+    def get_name(self):
+        pass
+
+    def get_position(self):
+        pass
+
+    def get_department(self):
+        pass
+
+    def get_salary(self):
+        pass
+
+    def get_experience(self):
+        pass
+
+    def get_projects(self):
+        pass
