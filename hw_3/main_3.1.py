@@ -194,11 +194,35 @@ class Employee:
 
         if salary > 0:
             self.__salary += salary
-            
+
     def __str__(self):
         return (f'Название: {self.__name}\n'
-                f'Должность: {self.__positionl}\n'
+                f'Должность: {self.__position}\n'
                 f'Отдел: {self.__department}\n'
                 f'Зарплата: {self.__salary}\n'
                 f'Опыт: {self.__experience}\n'
-                f'Проекты: {self.__projects}\n')
+                f'Проекты: {self.__projects}')
+
+class Robot:
+
+    def __init__(self, serial_num: int, model: str, task: str, battery: int, status: bool):
+         self.__serial_num = serial_num
+         self.__model = model
+         self.__task = task
+         self.__battery = battery
+         self.__status = status
+
+    def get_serial_num(self):
+        return self.__serial_num
+
+    def get_model(self):
+        return self.__model
+
+    def get_task(self):
+        return self.__task
+
+    def get_battery(self):
+        return self.__battery
+
+    def get_status(self):
+        return self.__status
