@@ -3,7 +3,7 @@ from __future__ import annotations
 # 1.1
 class Wizard:
 
-    def __init__(self, name: str, house: str, magic_level: int, spells: list, status: str):
+    def __init__(self, name: str, house: str, magic_level: int, spells: list, student_status: bool):
         self.__name = name
         self.__house = house
         self.__magic_level = magic_level
@@ -11,7 +11,7 @@ class Wizard:
             self.__spells = []
         else:
             self.__spells = spells
-        self.__status = status
+        self.__student_status = student_status
 
     def get_name(self):
         return self.__name
@@ -25,8 +25,8 @@ class Wizard:
     def get_spells(self):
         return self.__spells
 
-    def get_status(self):
-        return self.__status
+    def get_student_status(self):
+        return self.__student_status
 
     def set_house(self, house: str):
         if not isinstance(house, str): raise('Не подходящий тип данных.')
@@ -39,10 +39,10 @@ class Wizard:
         if magic_level > 0:
             self.__magic_level = magic_level
 
-    def set_status(self, status: str):
-        if not isinstance(status, str): raise('Не подходящий тип данных.')
+    def set_status(self, student_status: str):
+        if not isinstance(student_status, str): raise('Не подходящий тип данных.')
 
-        self.__status = status
+        self.__student_status = student_status
 
     def add_spell(self, spell: Spell):
         if not isinstance(spell, Spell): raise('Не подходящий тип данных.')
@@ -63,12 +63,19 @@ class Wizard:
         if amount > 0:
             self.__magic_level += amount
 
+    def get_spells_list(self):
+        info = '|'
+        for i in self.__spells:
+            i = i.get_name()
+            info += f' {str(i)} |'
+        return info
+
     def __str__(self):
         return (f'Имя: {self.__name}\n'
                 f'Факультет: {self.__house}\n'
                 f'Уровень маг. силы: {self.__magic_level}\n'
-                f'Список заклинаний: {self.__spells}\n'
-                f'Статус: {self.__status}')
+                f'Список заклинаний: {self.get_spells_list()}\n'
+                f'Статус: {self.__student_status}')
 
 # 1.2
 class Spell:
@@ -195,13 +202,19 @@ class Employee:
         if salary > 0:
             self.__salary += salary
 
+    def get_projects_list(self):
+        info = '|'
+        for i in self.__projects:
+            info += f' {str(i)} |'
+        return info
+
     def __str__(self):
         return (f'Название: {self.__name}\n'
                 f'Должность: {self.__position}\n'
                 f'Отдел: {self.__department}\n'
                 f'Зарплата: {self.__salary}\n'
                 f'Опыт: {self.__experience}\n'
-                f'Проекты: {self.__projects}')
+                f'Проекты: {self.get_projects_list()}')
 
 class Robot:
 
@@ -316,15 +329,71 @@ class Athlete:
                 del self.__achievements[i]
                 break
 
+    def get_achievements_list(self):
+        info = '|'
+        for i in self.__achievements:
+            i = i.get_name()
+            info += f' {str(i)} |'
+        return info
+
     def __str__(self):
         return (f'Имя: {self.__name}\n'
                 f'Возраст: {self.__age}\n'
                 f'Вид спорта: {self.__sport}\n'
-                f'Достижения: {self.__achievements}\n'
+                f'Достижения: {self.get_achievements_list()}\n'
                 f'Статус: {self.__status}')
 
 class Achievement:
 
-    def __init__(self):
-        pass
+    def __init__(self, name: str):
+        self.__name = name
 
+    def get_name(self):
+        return self.__name
+
+class Program:
+
+    @staticmethod
+    def main():
+        # волшебник и заклинание
+        fire_ball = Spell('Огненный шар', 5, 'Боевое', 'Шар из огня')
+        heal = Spell('Лечение', 3, 'Лечебное', 'Лечит')
+        stun = Spell('Оглушение', 6, 'Боевое', 'Оглушает')
+
+        oleg_the_wizard = Wizard('Петр', 'СЕСирин', 5, [heal, stun], False)
+
+        oleg_the_wizard.add_spell(fire_ball)
+
+        print(oleg_the_wizard)
+
+        # сотрудник
+        oleg = Employee('Олег', 'Младший дизайнер', 'Дизайн', 10000,
+                        20, ['Недодизайн', 'Супердизайн'])
+
+        oleg.add_project('Среднедизайн')
+        oleg.remove_project('Недодизайн')
+        oleg.increase_salary(10000.0)
+        print()
+        print(oleg)
+
+        #робот
+        oleg_the_robot = Robot(12365, 'T-1000', 'Оборона', 90, True)
+
+        oleg_the_robot.set_status(False)
+        oleg_the_robot.set_battery(10)
+
+        print()
+        print(oleg_the_robot)
+
+        # атлет
+        best = Achievement('Лучший')
+        worst = Achievement('Худший')
+        nearly_the_best = Achievement('Почти лучший')
+
+        oleg_the_athlete = Athlete('Олег', 40, 'Гимнастика', [best, worst], True)
+
+        oleg_the_athlete.remove_achievement(worst)
+        oleg_the_athlete.add_achievement(nearly_the_best)
+        print(oleg_the_athlete)
+
+Program.main()
