@@ -302,3 +302,29 @@ class Athlete:
         if not isinstance(status, bool): raise('Не подходящий тип данных.')
 
         self.__status = status
+
+    def add_achievement(self, achievement: Achievement):
+        if not isinstance(achievement, Achievement): raise('Не подходящий тип данных.')
+
+        self.__achievements.append(achievement)
+
+    def remove_achievement(self, achievement: Achievement):
+        if not isinstance(achievement, Achievement): raise('Не подходящий тип данных.')
+
+        for i in range(0, len(self.__achievements), 1):
+            if self.__achievements[i] == achievement:
+                del self.__achievements[i]
+                break
+
+    def __str__(self):
+        return (f'Имя: {self.__name}\n'
+                f'Возраст: {self.__age}\n'
+                f'Вид спорта: {self.__sport}\n'
+                f'Достижения: {self.__achievements}\n'
+                f'Статус: {self.__status}')
+
+class Achievement:
+
+    def __init__(self):
+        pass
+
