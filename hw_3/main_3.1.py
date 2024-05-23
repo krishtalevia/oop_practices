@@ -251,3 +251,10 @@ class Robot:
         if not isinstance(status, bool): raise('Не подходящий тип данных.')
 
         self.__status = status
+
+    def __str__(self):
+        return (f'Серийный номер: {self.__serial_num}\n'
+                f'Модель: {self.__model}\n'
+                f'Задача: {self.__task}\n'
+                f'Батарея: {self.__battery}\n'
+                f'Состояние: {self.__status}')
