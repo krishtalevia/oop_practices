@@ -258,3 +258,47 @@ class Robot:
                 f'Задача: {self.__task}\n'
                 f'Батарея: {self.__battery}\n'
                 f'Состояние: {self.__status}')
+
+class Athlete:
+
+    def __init__(self, name: str, age: int, sport: str, achievements: list, status: bool):
+        self.__name = name
+        self.__age = age
+        self.__sport = sport
+        self.__achievements = achievements
+        self.__status = status
+
+    def get_name(self):
+        return self.__name
+
+    def get_age(self):
+        return self.__age
+
+    def get_sport(self):
+        return self.__sport
+
+    def get_achievements(self):
+        return self.__achievements
+
+    def get_status(self):
+        return self.__status
+
+    def set_name(self, name: str):
+        if not isinstance(name, str): raise('Не подходящий тип данных.')
+
+        self.__name = name
+
+    def set_age(self, age: int):
+        if not isinstance(age, int): raise('Не подходящий тип данных.')
+
+        self.__age = age
+
+    def set_sport(self, sport: str):
+        if not isinstance(sport, str): raise('Не подходящий тип данных.')
+
+        self.__sport = sport
+
+    def set_status(self, status: bool):
+        if not isinstance(status, bool): raise('Не подходящий тип данных.')
+
+        self.__status = status
