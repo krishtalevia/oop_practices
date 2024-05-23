@@ -226,3 +226,28 @@ class Robot:
 
     def get_status(self):
         return self.__status
+
+    def set_serial_num(self, serial_num: int):
+        if not isinstance(serial_num, int): raise('Не подходящий тип данных.')
+
+        self.__serial_num = serial_num
+
+    def set_model(self, model: str):
+        if not isinstance(model, str): raise('Не подходящий тип данных.')
+
+        self.__model = model
+
+    def set_task(self, task: str):
+        if not isinstance(task, str): raise('Не подходящий тип данных.')
+
+        self.__task = task
+
+    def set_battery(self, battery: int):
+        if not isinstance(battery, int): raise('Не подходящий тип данных.')
+
+        self.__battery = battery
+
+    def set_status(self, status: bool):
+        if not isinstance(status, bool): raise('Не подходящий тип данных.')
+
+        self.__status = status
