@@ -29,18 +29,18 @@ class Wizard:
         return self.__status
 
     def set_house(self, house: str):
-        if not isinstance(house, str): raise ('Не подходящий тип данных.')
+        if not isinstance(house, str): raise('Не подходящий тип данных.')
 
         self.__house = house
 
     def set_magic_level(self, magic_level: int):
-        if not isinstance(magic_level, int): raise ('Не подходящий тип данных.')
+        if not isinstance(magic_level, int): raise('Не подходящий тип данных.')
 
         if magic_level > 0:
             self.__magic_level = magic_level
 
     def set_status(self, status: str):
-        if not isinstance(status, str): raise ('Не подходящий тип данных.')
+        if not isinstance(status, str): raise('Не подходящий тип данных.')
 
         self.__status = status
 
@@ -50,7 +50,7 @@ class Wizard:
         self.__spells.append(spell)
 
     def remove_spell(self, spell: Spell):
-        if not isinstance(spell, Spell): raise ('Не подходящий тип данных.')
+        if not isinstance(spell, Spell): raise('Не подходящий тип данных.')
 
         for i in range(0, len(self.__spells), 1):
             if self.__spells[i] == spell:
@@ -58,7 +58,7 @@ class Wizard:
                 break
 
     def increase_magic_level(self, amount: int):
-        if not isinstance(amount, int): raise ('Не подходящий тип данных.')
+        if not isinstance(amount, int): raise('Не подходящий тип данных.')
 
         if amount > 0:
             self.__magic_level += amount
@@ -175,3 +175,30 @@ class Employee:
         if not isinstance(experience, int): raise('Не подходящий тип данных.')
 
         self.__experience = experience
+
+    def add_project(self, project: str):
+        if not isinstance(project, str): raise('Не подходящий тип данных.')
+
+        self.__projects.append(project)
+
+    def remove_project(self, project: str):
+        if not isinstance(project, str): raise('Не подходящий тип данных.')
+
+        for i in range(0, len(self.__projects), 1):
+            if self.__projects[i] == project:
+                del self.__projects[i]
+                break
+
+    def increase_salary(self, salary: float):
+        if not isinstance(salary, float): raise('Не подходящий тип данных.')
+
+        if salary > 0:
+            self.__salary += salary
+            
+    def __str__(self):
+        return (f'Название: {self.__name}\n'
+                f'Должность: {self.__positionl}\n'
+                f'Отдел: {self.__department}\n'
+                f'Зарплата: {self.__salary}\n'
+                f'Опыт: {self.__experience}\n'
+                f'Проекты: {self.__projects}\n')
