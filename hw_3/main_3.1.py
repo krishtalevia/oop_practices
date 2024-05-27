@@ -29,28 +29,28 @@ class Wizard:
         return self.__student_status
 
     def set_house(self, house: str):
-        if not isinstance(house, str): raise('Не подходящий тип данных.')
+        if not isinstance(house, str): raise TypeError('Неподходящий тип данных!')
 
         self.__house = house
 
     def set_magic_level(self, magic_level: int):
-        if not isinstance(magic_level, int): raise('Не подходящий тип данных.')
+        if not isinstance(magic_level, int): raise TypeError('Неподходящий тип данных!')
 
         if magic_level > 0:
             self.__magic_level = magic_level
 
     def set_status(self, student_status: str):
-        if not isinstance(student_status, str): raise('Не подходящий тип данных.')
+        if not isinstance(student_status, str): raise TypeError('Неподходящий тип данных!')
 
         self.__student_status = student_status
 
     def add_spell(self, spell: Spell):
-        if not isinstance(spell, Spell): raise('Не подходящий тип данных.')
+        if not isinstance(spell, Spell): raise TypeError('Неподходящий тип данных!')
 
         self.__spells.append(spell)
 
     def remove_spell(self, spell: Spell):
-        if not isinstance(spell, Spell): raise('Не подходящий тип данных.')
+        if not isinstance(spell, Spell): raise TypeError('Неподходящий тип данных!')
 
         for i in range(0, len(self.__spells), 1):
             if self.__spells[i] == spell:
@@ -58,7 +58,7 @@ class Wizard:
                 break
 
     def increase_magic_level(self, amount: int):
-        if not isinstance(amount, int): raise('Не подходящий тип данных.')
+        if not isinstance(amount, int): raise TypeError('Неподходящий тип данных!')
 
         if amount > 0:
             self.__magic_level += amount
@@ -99,23 +99,23 @@ class Spell:
         return self.__description
 
     def set_name(self, name: str):
-        if not isinstance(name, str): raise('Не подходящий тип данных.')
+        if not isinstance(name, str): raise TypeError('Неподходящий тип данных!')
 
         self.__name = name
 
     def set_level(self, level: int):
-        if not isinstance(level, int): raise('Не подходящий тип данных.')
+        if not isinstance(level, int): raise TypeError('Неподходящий тип данных!')
 
         if level <= 10 and level >= 0:
             self.__level = level
 
     def set_type(self, type: str):
-        if not isinstance(type, str): raise('Не подходящий тип данных.')
+        if not isinstance(type, str): raise TypeError('Неподходящий тип данных!')
 
         self.__type = type
 
     def set_description(self, description: str):
-        if not isinstance(description, str): raise('Не подходящий тип данных.')
+        if not isinstance(description, str): raise TypeError('Неподходящий тип данных!')
 
         self.__description = description
 
@@ -159,37 +159,37 @@ class Employee:
         return self.__projects
 
     def set_name(self, name: str):
-        if not isinstance(name, str): raise('Не подходящий тип данных.')
+        if not isinstance(name, str): raise TypeError('Неподходящий тип данных!')
 
         self.__name = name
 
     def set_position(self, position: str):
-        if not isinstance(position, str): raise('Не подходящий тип данных.')
+        if not isinstance(position, str): raise TypeError('Неподходящий тип данных!')
 
         self.__position = position
 
     def set_department(self, department: str):
-        if not isinstance(department, str): raise('Не подходящий тип данных.')
+        if not isinstance(department, str): raise TypeError('Неподходящий тип данных!')
 
         self.__department = department
 
     def set_salary(self, salary: float):
-        if not isinstance(salary, float): raise('Не подходящий тип данных.')
+        if not isinstance(salary, float): raise TypeError('Неподходящий тип данных!')
 
         self.__salary = salary
 
     def set_experience(self, experience: int):
-        if not isinstance(experience, int): raise('Не подходящий тип данных.')
+        if not isinstance(experience, int): raise TypeError('Неподходящий тип данных!')
 
         self.__experience = experience
 
     def add_project(self, project: str):
-        if not isinstance(project, str): raise('Не подходящий тип данных.')
+        if not isinstance(project, str): raise TypeError('Неподходящий тип данных!')
 
         self.__projects.append(project)
 
     def remove_project(self, project: str):
-        if not isinstance(project, str): raise('Не подходящий тип данных.')
+        if not isinstance(project, str): raise TypeError('Неподходящий тип данных!')
 
         for i in range(0, len(self.__projects), 1):
             if self.__projects[i] == project:
@@ -197,7 +197,7 @@ class Employee:
                 break
 
     def increase_salary(self, salary: float):
-        if not isinstance(salary, float): raise('Не подходящий тип данных.')
+        if not isinstance(salary, float): raise TypeError('Неподходящий тип данных!')
 
         if salary > 0:
             self.__salary += salary
@@ -241,27 +241,27 @@ class Robot:
         return self.__status
 
     def set_serial_num(self, serial_num: int):
-        if not isinstance(serial_num, int): raise('Не подходящий тип данных.')
+        if not isinstance(serial_num, int): raise TypeError('Неподходящий тип данных!')
 
         self.__serial_num = serial_num
 
     def set_model(self, model: str):
-        if not isinstance(model, str): raise('Не подходящий тип данных.')
+        if not isinstance(model, str): raise TypeError('Неподходящий тип данных!')
 
         self.__model = model
 
     def set_task(self, task: str):
-        if not isinstance(task, str): raise('Не подходящий тип данных.')
+        if not isinstance(task, str): raise TypeError('Неподходящий тип данных!')
 
         self.__task = task
 
     def set_battery(self, battery: int):
-        if not isinstance(battery, int): raise('Не подходящий тип данных.')
+        if not isinstance(battery, int): raise TypeError('Неподходящий тип данных!')
 
         self.__battery = battery
 
     def set_status(self, status: bool):
-        if not isinstance(status, bool): raise('Не подходящий тип данных.')
+        if not isinstance(status, bool): raise TypeError('Неподходящий тип данных!')
 
         self.__status = status
 
@@ -297,32 +297,32 @@ class Athlete:
         return self.__status
 
     def set_name(self, name: str):
-        if not isinstance(name, str): raise('Не подходящий тип данных.')
+        if not isinstance(name, str): raise TypeError('Неподходящий тип данных!')
 
         self.__name = name
 
     def set_age(self, age: int):
-        if not isinstance(age, int): raise('Не подходящий тип данных.')
+        if not isinstance(age, int): raise TypeError('Неподходящий тип данных!')
 
         self.__age = age
 
     def set_sport(self, sport: str):
-        if not isinstance(sport, str): raise('Не подходящий тип данных.')
+        if not isinstance(sport, str): raise TypeError('Неподходящий тип данных!')
 
         self.__sport = sport
 
     def set_status(self, status: bool):
-        if not isinstance(status, bool): raise('Не подходящий тип данных.')
+        if not isinstance(status, bool): raise TypeError('Неподходящий тип данных!')
 
         self.__status = status
 
     def add_achievement(self, achievement: Achievement):
-        if not isinstance(achievement, Achievement): raise('Не подходящий тип данных.')
+        if not isinstance(achievement, Achievement): raise TypeError('Неподходящий тип данных!')
 
         self.__achievements.append(achievement)
 
     def remove_achievement(self, achievement: Achievement):
-        if not isinstance(achievement, Achievement): raise('Не подходящий тип данных.')
+        if not isinstance(achievement, Achievement): raise TypeError('Неподходящий тип данных!')
 
         for i in range(0, len(self.__achievements), 1):
             if self.__achievements[i] == achievement:

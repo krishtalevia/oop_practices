@@ -71,7 +71,7 @@ class ModelWindow:
         self.border = border
 
     def move_by_horizontal(self, pixels_coor_x: int):
-        if not isinstance(pixels_coor_x, int): raise TypeError('Не подходящий тип данных')
+        if not isinstance(pixels_coor_x, int): raise TypeError('Неподходящий тип данных!')
 
         if not (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_x) > 1960 or
                 self.left_upper_corner_coor_x + pixels_coor_x < 0):
@@ -79,7 +79,7 @@ class ModelWindow:
             self.left_upper_corner_coor_x = self.left_upper_corner_coor_x + pixels_coor_x
 
     def move_by_vertical(self, pixels_coor_y: int):
-        if not isinstance(pixels_coor_y, int): raise TypeError('Не подходящий тип данных')
+        if not isinstance(pixels_coor_y, int): raise TypeError('Неподходящий тип данных!')
 
         if not (self.horizontal_size + (self.left_upper_corner_coor_x + pixels_coor_y) > 1080 or
                 self.left_upper_corner_coor_x + pixels_coor_y < 0):
@@ -87,7 +87,7 @@ class ModelWindow:
             self.left_upper_corner_coor_y = self.left_upper_corner_coor_y + pixels_coor_y
 
     def set_vertical_size(self, vertical_size: int):
-        if not isinstance(vertical_size, int): raise TypeError('Не подходящий тип данных')
+        if not isinstance(vertical_size, int): raise TypeError('Неподходящий тип данных!')
 
         if not ((vertical_size) + self.left_upper_corner_coor_y > 1080 or
                 vertical_size + self.left_upper_corner_coor_y < 0):
@@ -97,7 +97,7 @@ class ModelWindow:
 
 
     def set_horizontal_size(self, horizontal_size: int):
-        if not isinstance(horizontal_size, int): raise TypeError('Не подходящий тип данных')
+        if not isinstance(horizontal_size, int): raise TypeError('Неподходящий тип данных!')
 
         if not ((horizontal_size + self.horizontal_size) + self.left_upper_corner_coor_x > 1960 or
                     horizontal_size  + self.left_upper_corner_coor_x < 0):
@@ -105,17 +105,17 @@ class ModelWindow:
                 self.horizontal_size = horizontal_size
 
     def set_color(self, color: str):
-        if not isinstance(color, str): raise TypeError('Не подходящий тип данных')
+        if not isinstance(color, str): raise TypeError('Неподходящий тип данных!')
 
         self.color = color
 
     def set_visibility(self, visibility: bool):
-        if not isinstance(visibility, bool): raise TypeError('Не подходящий тип данных')
+        if not isinstance(visibility, bool): raise TypeError('Неподходящий тип данных!')
 
         self.visibility = visibility
 
     def set_border(self, border: bool):
-        if not isinstance(border, bool): raise TypeError('Не подходящий тип данных')
+        if not isinstance(border, bool): raise TypeError('Неподходящий тип данных!')
         self.border = border
 
     def get_visibility(self):

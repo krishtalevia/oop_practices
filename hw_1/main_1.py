@@ -87,7 +87,7 @@ class MusicAlbum:
 
     def add_track(self, new_track: str):
         self.track_list.append(new_track)
-        print(f'Трек "{new_track_name}" был добавлен в альбом!\n')
+        print(f'Трек "{new_track}" был добавлен в альбом!\n')
 
     def delete_track(self, track_to_delete: str):
         res = f'В альбоме нет трека с названием "{track_to_delete}".\n'
