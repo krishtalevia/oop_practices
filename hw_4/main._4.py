@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+
+# 1
 class Student:
 
     def __init__(self, first_name: str, last_name: str, age: int, avg_mark: int):
@@ -33,7 +37,61 @@ class Student:
 
         self.__age = age
 
-    def set(self, avg_mark: int):
+    def set_avg_mark(self, avg_mark: int):
         if not isinstance(avg_mark, int): raise TypeError('Неподходящий тип данных!')
 
         self.__avg_mark = avg_mark
+
+    def __str__(self):
+        return (f'Имя: {self.__first_name}'
+                f'Фамилия: {self.__last_name}'
+                f'Возраст: {self.__age}'
+                f'Средний балл: {self.__avg_mark}')
+
+    def __eq__(self, other):
+        if not isinstance(other, Student): raise TypeError('Неподходящий тип данных!')
+
+        if self.__avg_mark == other.__avg_mark:
+            return True
+
+        return False
+
+    def __ne__(self, other):
+        if not isinstance(other, Student): raise TypeError('Неподходящий тип данных!')
+
+        if self.__avg_mark != other.__avg_mark:
+            return True
+
+        return False
+
+    def __lt__(self, other):
+        if not isinstance(other, Student): raise TypeError('Неподходящий тип данных!')
+
+        if self.__avg_mark < other.__avg_mark:
+            return True
+
+        return False
+
+    def __le__(self, other):
+        if not isinstance(other, Student): raise TypeError('Неподходящий тип данных!')
+
+        if self.__avg_mark <= other.__avg_mark:
+            return True
+
+        return False
+
+    def __gt__(self, other):
+        if not isinstance(other, Student): raise TypeError('Неподходящий тип данных!')
+
+        if self.__avg_mark > other.__avg_mark:
+            return True
+
+        return False
+
+    def __ge__(self, other):
+        if not isinstance(other, Student): raise TypeError('Неподходящий тип данных!')
+
+        if self.__avg_mark >= other.__avg_mark:
+            return True
+
+        return False
