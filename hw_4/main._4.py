@@ -95,3 +95,16 @@ class Student:
             return True
 
         return False
+
+class Program:
+
+    @staticmethod
+    def main():
+
+        ivan_the_student = Student('Иван', 'Иванов', 30, 4)
+        oleg_the_student = Student('Олег', 'Олегов', 26, 5)
+
+        print(ivan_the_student < oleg_the_student)
+        print(ivan_the_student == oleg_the_student)
+
+Program.main()
