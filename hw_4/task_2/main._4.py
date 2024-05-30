@@ -46,6 +46,32 @@ class Library:
 
         self.__address = address
 
+    def add_book(self, book: Book):
+        if not isinstance(book, Book): raise TypeError('Неподходящий тип данных!')
+
+        self.__books.append(book)
+
+    def remove_book(self, book: Book):
+        if not isinstance(book, Book): raise TypeError('Неподходящий тип данных!')
+
+        for i in range(0, len(self.__books), 1):
+            if self.__books[i] == book:
+                del self.__books[i]
+                break
+
+    def add_employee(self, employee: Employee):
+        if not isinstance(employee, Employee): raise TypeError('Неподходящий тип данных!')
+
+        self.__employees.append(employee)
+
+    def remove_employee(self, employee: Employee):
+        if not isinstance(employee, Employee): raise TypeError('Неподходящий тип данных!')
+
+        for i in range(0, len(self.__employees), 1):
+            if self.__employees[i] == employee:
+                del self.__employees[i]
+                break
+
     def __str__(self):
         return (f'Название: {self.__name}'
                 f'Адрес: {self.__address}'
