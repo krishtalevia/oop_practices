@@ -4,7 +4,7 @@ from __future__ import annotations
 # 2
 class Library:
 
-    def __init__(self, name: str, address: str, books: list[Book], employees: list[Employee]):
+    def __init__(self, name: str, address: str, books: list[Book] = None, employees: list[Employee] = None):
         self.__name = name
         self.__address = address
         if books is None:
@@ -78,3 +78,20 @@ class Library:
                 f'Книги: {self.get_books()}'
                 f'Сотрудники: {self.get_employees()}')
 
+class Book:
+
+    def __init__(self, title: str, author: str, year: int, id: int, genres: list[Genre] = None):
+        self.__title = title
+        self.__author = author
+        self.__year = year
+        self.__id = id
+        if genres == None:
+            self.__genres = []
+        else:
+            self.__genres = genres
+
+    
+
+
+class Employee:
+    pass
