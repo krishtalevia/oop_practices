@@ -235,3 +235,29 @@ class Genre:
     def __str__(self):
         return (f'Название: {self.__name}'
                 f'Описание: {self.__description}')
+
+class ContactInfo:
+
+    def __init__(self, type: str, value: str):
+        self.__type = type
+        self.__value = value
+
+    def get_type(self):
+        return self.__type
+
+    def get_description(self):
+        return self.__value
+
+    def set_type(self, type: str):
+        if not isinstance(type, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__type = type
+
+    def set_value(self, value: str):
+        if not isinstance(value, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__value = value
+
+    def __str__(self):
+        return (f'Тип: {self.__type}'
+                f'Значение: {self.__value}')
