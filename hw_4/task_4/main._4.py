@@ -57,10 +57,7 @@ class HogwartsStudent:
     def cast_spell(self, target: HogwartsStudent):
         if not isinstance(target, HogwartsStudent): raise TypeError('Неподходящий тип данных!')
 
-        number_of_spells = len(self.__spells)
-        spell_number = random.randint(0, number_of_spells)
-
-        current_spell = self.__spells(spell_number)
+        current_spell = random.choice(self.__spells)
         self.__mana -= current_spell.get_mana_cost()
 
         current_spell.cast(target)
@@ -105,7 +102,9 @@ class Spell:
     def cast(self, target: HogwartsStudent):
         if not isinstance(target, HogwartsStudent): raise TypeError('Неподходящий тип данных!')
 
-        return (f'На студента {target} применяется заклинание {self.__name}. \n'
+        target_name = target.get_name()
+
+        print(f'Во время боя с {target_name}, применяется заклинание {self.__name}.\n'
                 f'Эффект: {self.__description}\n'
                 f'Маны затрачено: {self.__mana_cost}')
 
@@ -157,11 +156,13 @@ class Hogwarts:
                 or not isinstance(student2, HogwartsStudent)): raise TypeError('Неподходящий тип данных!')
 
         while True:
+            print(f'----------Атакует студент {student1.get_name()}----------')
             student1.cast_spell(student2)
             if student1.get_mana() <= 0:
                 winner = student2.get_name()
                 break
 
+            print(f'----------Атакует студент {student2.get_name()}----------')
             student2.cast_spell(student1)
             if student2.get_mana() <= 0:
                 winner = student1.get_name()
@@ -170,3 +171,28 @@ class Hogwarts:
         print(f'Победил студент {winner}!')
         student1.set_mana(100)
         student2.set_mana(100)
+
+class Program:
+
+    @staticmethod
+    def main():
+
+        expelliarmus = Spell('Expelliarmus', 'Обезоруживание', 10)
+        stupefy = Spell('Stupefy', 'Оглушение', 20)
+        avada_kedavra = Spell('Avada Kedavra', 'Смертельное ранение', 30)
+        protego = Spell('Protego', 'Защитный щит', 10)
+        petrificus_totalus = Spell('Petrificus Totalus', 'Полная парализация', 20)
+        lumos = Spell('Полная парализация', 'Создание источника света', 10)
+        expecto_patronum = Spell('Expecto Patronum', 'Призывание патронуса', 30)
+
+        oleg = HogwartsStudent('Олег', 'Слизерин', 100,
+                                           [expelliarmus, stupefy, avada_kedavra])
+        igor = HogwartsStudent('Игорь', 'Когтевран', 100,
+                               [lumos, petrificus_totalus, expecto_patronum])
+
+        hogwarts = Hogwarts([oleg, igor], [expelliarmus, stupefy, avada_kedavra, protego,
+                                           petrificus_totalus, lumos, expecto_patronum])
+
+        hogwarts.simulate_duel(oleg, igor)
+
+Program.main()
