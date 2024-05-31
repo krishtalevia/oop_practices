@@ -145,8 +145,8 @@ class Book:
     def __str__(self):
         return (f'Название: {self.__title}'
                 f'Автор: {self.__author}'
-                f'Год: {self.__year()}'
-                f'ID: {self.__id()}'
+                f'Год: {self.__year}'
+                f'ID: {self.__id}'
                 f'Жанры: {self.get_genres()}')
 
 class Employee:
@@ -207,5 +207,31 @@ class Employee:
     def __str__(self):
         return (f'Имя: {self.__name}'
                 f'Должность: {self.__position}'
-                f'ID: {self.__id()}'
+                f'ID: {self.__id}'
                 f'Контакт. информация: {self.get_contact_info()}')
+
+class Genre:
+
+    def __init__(self, name: str, description: str):
+        self.__name = name
+        self.__description = description
+
+    def get_name(self):
+        return self.__name
+
+    def get_description(self):
+        return self.__description
+
+    def set_name(self, name: str):
+        if not isinstance(name, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__name = name
+
+    def set_description(self, description: str):
+        if not isinstance(description, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__description = description
+
+    def __str__(self):
+        return (f'Название: {self.__name}'
+                f'Описание: {self.__description}')
