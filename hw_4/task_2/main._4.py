@@ -31,7 +31,7 @@ class Library:
 
     def get_employees(self):
         employees = '|'
-        for i in self.__books:
+        for i in self.__employees:
             i = i.get_name()
             employees += f' {str(i)} |'
         return employees
@@ -73,10 +73,10 @@ class Library:
                 break
 
     def __str__(self):
-        return (f'Название: {self.__name}'
-                f'Адрес: {self.__address}'
-                f'Книги: {self.get_books()}'
-                f'Сотрудники: {self.get_employees()}')
+        return (f'Название: {self.__name}\n'
+                f'Адрес: {self.__address}\n'
+                f'Книги: {self.get_books()}\n'
+                f'Сотрудники: {self.get_employees()}\n')
 
 class Book:
 
@@ -143,11 +143,11 @@ class Book:
                 break
 
     def __str__(self):
-        return (f'Название: {self.__title}'
-                f'Автор: {self.__author}'
-                f'Год: {self.__year}'
-                f'ID: {self.__id}'
-                f'Жанры: {self.get_genres()}')
+        return (f'Название: {self.__title}\n'
+                f'Автор: {self.__author}\n'
+                f'Год: {self.__year}\n'
+                f'ID: {self.__id}\n'
+                f'Жанры: {self.get_genres()}\n')
 
 class Employee:
 
@@ -205,10 +205,10 @@ class Employee:
                 break
 
     def __str__(self):
-        return (f'Имя: {self.__name}'
-                f'Должность: {self.__position}'
-                f'ID: {self.__id}'
-                f'Контакт. информация: {self.get_contact_info()}')
+        return (f'Имя: {self.__name}\n'
+                f'Должность: {self.__position}\n'
+                f'ID: {self.__id}\n'
+                f'Контакт. информация: {self.get_contact_info()}\n')
 
 class Genre:
 
@@ -233,8 +233,8 @@ class Genre:
         self.__description = description
 
     def __str__(self):
-        return (f'Название: {self.__name}'
-                f'Описание: {self.__description}')
+        return (f'Название: {self.__name}\n'
+                f'Описание: {self.__description}\n')
 
 class ContactInfo:
 
@@ -259,5 +259,30 @@ class ContactInfo:
         self.__value = value
 
     def __str__(self):
-        return (f'Тип: {self.__type}'
-                f'Значение: {self.__value}')
+        return (f'Тип: {self.__type}\n'
+                f'Значение: {self.__value}\n')
+
+class Program:
+
+    @staticmethod
+    def main():
+        comedy = Genre('Комедия', 'Юмор и  сатира')
+        horror = Genre('Ужасы', 'Страх и шок')
+        tragedy = Genre('Трагедия', 'Драма и пафос')
+        sci_fi = Genre('Науч. фантастика', 'Наука и фантастика')
+
+        tale = Book('Сказка', 'Олег', 1200, 1, [horror, comedy])
+        mars_attacks = Book('Марс атакует', 'Игорь', 1990, [sci_fi, comedy])
+
+        address = ContactInfo('Адрес', 'Ул. Пушкина, д. 1')
+        email = ContactInfo('Эл. почта', 'oleg@email.com')
+
+        oleg = Employee('Олег', 'Библиотекарь', 2, [address, email])
+
+        lenin_library = Library('Библиотека им. Ленина', 'м. Библиотека им. Ленина',
+                                [mars_attacks, tale], [oleg])
+
+        print(lenin_library)
+        print(tale)
+
+Program.main()
