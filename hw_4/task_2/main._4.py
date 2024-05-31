@@ -108,8 +108,46 @@ class Book:
             i = i.get_name()
             genres += f' {str(i)} |'
         return genres
-    
 
+    def set_title(self, title: str):
+        if not isinstance(title, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__title = title
+
+    def set_author(self, author: str):
+        if not isinstance(author, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__author = author
+
+    def set_year(self, year: int):
+        if not isinstance(year, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__year = year
+
+    def set_id(self, id: int):
+        if not isinstance(id, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__id = id
+
+    def add_genre(self, genre: Genre):
+        if not isinstance(genre, Genre): raise TypeError('Неподходящий тип данных!')
+
+        self.__genres.append(genre)
+
+    def remove_genre(self, genre: Genre):
+        if not isinstance(genre, Genre): raise TypeError('Неподходящий тип данных!')
+
+        for i in range(0, len(self.__genres), 1):
+            if self.__genres[i] == genre:
+                del self.__genres[i]
+                break
+
+    def __str__(self):
+        return (f'Название: {self.__title}'
+                f'Автор: {self.__author}'
+                f'Год: {self.__year()}'
+                f'ID: {self.__id()}'
+                f'Жанры: {self.get_genres()}')
 
 class Employee:
     pass
