@@ -90,6 +90,24 @@ class Book:
         else:
             self.__genres = genres
 
+    def get_title(self):
+        return self.__title
+
+    def get_author(self):
+        return self.__author
+
+    def get_year(self):
+        return self.__year
+
+    def get_id(self):
+        return self.__id
+
+    def get_genres(self):
+        genres = '|'
+        for i in self.__genres:
+            i = i.get_name()
+            genres += f' {str(i)} |'
+        return genres
     
 
 
