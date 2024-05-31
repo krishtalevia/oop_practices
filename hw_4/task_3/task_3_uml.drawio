@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2024-05-31T11:13:43.832Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="-CNEsag_oqsQReNYT007" version="24.4.9" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-31T13:33:55.655Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="vIFV_5K9SvbSa_Uy2bLn" version="24.4.9" type="device">
   <diagram name="Страница — 1" id="kZF4vLp_Y_fiBsRd3PuI">
     <mxGraphModel dx="521" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="ML4pTHdLRo7F1oKbEQ7r-1" value="Car" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="50" y="30" width="190" height="230" as="geometry" />
+          <mxGeometry x="50" y="30" width="190" height="250" as="geometry" />
         </mxCell>
         <mxCell id="ML4pTHdLRo7F1oKbEQ7r-2" value="- brand: str&lt;div&gt;- model: str&lt;/div&gt;&lt;div&gt;- year: int&lt;/div&gt;&lt;div&gt;- price: float&lt;/div&gt;&lt;div&gt;- status: str&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-1">
           <mxGeometry y="26" width="190" height="84" as="geometry" />
@@ -13,8 +13,8 @@
         <mxCell id="ML4pTHdLRo7F1oKbEQ7r-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-1">
           <mxGeometry y="110" width="190" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="ML4pTHdLRo7F1oKbEQ7r-4" value="+ get_brand(): str&lt;div&gt;+ get_model(): str&lt;/div&gt;&lt;div&gt;+ get_year(): int&lt;/div&gt;&lt;div&gt;+ get_price(): float&lt;/div&gt;&lt;div&gt;+ get_status(): str&lt;/div&gt;&lt;div&gt;+ set_status(status: str): None&lt;br&gt;+ __str__(): str&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-1">
-          <mxGeometry y="118" width="190" height="112" as="geometry" />
+        <mxCell id="ML4pTHdLRo7F1oKbEQ7r-4" value="+ get_brand(): str&lt;div&gt;+ get_model(): str&lt;/div&gt;&lt;div&gt;+ get_year(): int&lt;/div&gt;&lt;div&gt;+ get_price(): float&lt;/div&gt;&lt;div&gt;+ get_status(): str&lt;/div&gt;&lt;div&gt;- set_status(status: str): None&lt;/div&gt;&lt;div&gt;- set_price(price: float): None&lt;br&gt;+ __str__(): str&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-1">
+          <mxGeometry y="118" width="190" height="132" as="geometry" />
         </mxCell>
         <mxCell id="ML4pTHdLRo7F1oKbEQ7r-7" value="Salesperson" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="260" y="30" width="200" height="200" as="geometry" />
@@ -41,16 +41,16 @@
           <mxGeometry y="98" width="200" height="112" as="geometry" />
         </mxCell>
         <mxCell id="ML4pTHdLRo7F1oKbEQ7r-15" value="Dealership" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="50" y="320" width="320" height="280" as="geometry" />
+          <mxGeometry x="50" y="320" width="420" height="280" as="geometry" />
         </mxCell>
-        <mxCell id="ML4pTHdLRo7F1oKbEQ7r-16" value="- cars: list[Car]&lt;div&gt;- salepersons: list[Saleperson]&lt;/div&gt;&lt;div&gt;- customers: list[Customer]&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-15">
-          <mxGeometry y="26" width="320" height="54" as="geometry" />
+        <mxCell id="ML4pTHdLRo7F1oKbEQ7r-16" value="- cars: list[Car]&lt;div&gt;- salespersons: list[Salesperson]&lt;/div&gt;&lt;div&gt;- customers: list[Customer]&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-15">
+          <mxGeometry y="26" width="420" height="54" as="geometry" />
         </mxCell>
         <mxCell id="ML4pTHdLRo7F1oKbEQ7r-17" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-15">
-          <mxGeometry y="80" width="320" height="8" as="geometry" />
+          <mxGeometry y="80" width="420" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="ML4pTHdLRo7F1oKbEQ7r-18" value="+ get_cars(): str&lt;div&gt;+ get_salepersons(): int&lt;/div&gt;&lt;div&gt;+ get_customers(): str&lt;/div&gt;&lt;div&gt;+ add_car(car: Car): None&lt;/div&gt;&lt;div&gt;+ sell_car(car: Car, saleperson: Saleperson, customer: Customer): None&lt;/div&gt;&lt;div&gt;+ add_saleperson(saleperson: Saleperson): None&lt;/div&gt;&lt;div&gt;+ remove_saleperson(saleperson: Saleperson): None&lt;/div&gt;&lt;div&gt;+ add_customer(customer: Customer): None&lt;/div&gt;&lt;div&gt;+ set_car_price(car: Car, price: float)&lt;/div&gt;&lt;div&gt;+ set_car_status(car: Car, status: str)&lt;/div&gt;&lt;div&gt;+ __str__(): str&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-15">
-          <mxGeometry y="88" width="320" height="192" as="geometry" />
+        <mxCell id="ML4pTHdLRo7F1oKbEQ7r-18" value="+ get_cars(): str&lt;div&gt;+ get_salespersons(): int&lt;/div&gt;&lt;div&gt;+ get_customers(): str&lt;/div&gt;&lt;div&gt;+ add_car(car: Car): None&lt;/div&gt;&lt;div&gt;+ sell_car(car: Car, salesperson: Salesperson, customer: Customer): None&lt;/div&gt;&lt;div&gt;+ add_saleperson(salesperson: Salesperson): None&lt;/div&gt;&lt;div&gt;+ remove_saleperson(salesperson: Salesperson): None&lt;/div&gt;&lt;div&gt;+ add_customer(customer: Customer): None&lt;/div&gt;&lt;div&gt;+ set_car_price(car: Car, price: float)&lt;/div&gt;&lt;div&gt;+ set_car_status(car: Car, status: str)&lt;/div&gt;&lt;div&gt;+ __str__(): str&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="ML4pTHdLRo7F1oKbEQ7r-15">
+          <mxGeometry y="88" width="420" height="192" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
