@@ -113,3 +113,60 @@ class Spell:
         return (f'Название: {self.__name}\n'
                 f'Описание: {self.__description}\n'
                 f'Стоимость (мана): {self.__mana_cost}\n')
+
+class Hogwarts:
+
+    def __init__(self, students: list[Hogwarts], spells: list[Spell]):
+        self.__students = students
+        self.__spells = spells
+
+    def get_students(self):
+        students = ''
+        for i in self.__students:
+            i = i.get_name()
+            students += f' {str(i)} |'
+        return students
+
+    def get_spells(self):
+        spells = ''
+        for i in self.__spells:
+            i = i.get_name()
+            spells += f' {str(i)} |'
+        return spells
+
+    def enroll_student(self, student: HogwartsStudent):
+        if not isinstance(student, HogwartsStudent): raise TypeError('Неподходящий тип данных!')
+
+        self.__students.append(student)
+
+    def teach_spell(self, spell: Spell):
+        if not isinstance(spell, Spell): raise TypeError('Неподходящий тип данных!')
+
+        self.__spells.append(spell)
+
+    def remove_spell(self, spell: Spell):
+        if not isinstance(spell, Spell): raise TypeError('Неподходящий тип данных!')
+
+        for i in range(0, len(self.__spells), 1):
+            if self.__spells[i] == spell:
+                del self.__spells[i]
+                break
+
+    def simulate_duel(self, student1: HogwartsStudent, student2: HogwartsStudent):
+        if (not isinstance(student1, HogwartsStudent)
+                or not isinstance(student2, HogwartsStudent)): raise TypeError('Неподходящий тип данных!')
+
+        while True:
+            student1.cast_spell(student2)
+            if student1.get_mana() <= 0:
+                winner = student2.get_name()
+                break
+
+            student2.cast_spell(student1)
+            if student2.get_mana() <= 0:
+                winner = student1.get_name()
+                break
+
+        print(f'Победил студент {winner}!')
+        student1.set_mana(100)
+        student2.set_mana(100)
