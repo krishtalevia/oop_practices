@@ -63,7 +63,53 @@ class HogwartsStudent:
         current_spell = self.__spells(spell_number)
         self.__mana -= current_spell.get_mana_cost()
 
+        current_spell.cast(target)
+        print(f'Осталось маны: {self.__mana}')
+
     def __str__(self):
         return (f'Имя: {self.__name}\n'
                 f'Факультет: {self.__faculty}\n'
                 f'Заклинания: {self.get_spells()}\n')
+
+class Spell:
+
+    def __init__(self, name: str, description: str, mana_cost: int):
+        self.__name = name
+        self.__description = description
+        self.__mana_cost = mana_cost
+
+    def get_name(self):
+        return self.__name
+
+    def get_description(self):
+        return self.__description
+
+    def get_mana_cost(self):
+        return self.__mana_cost
+
+    def set_name(self, name: str):
+        if not isinstance(name, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__name = name
+
+    def set_description(self, description: str):
+        if not isinstance(description, str): raise TypeError('Неподходящий тип данных!')
+
+        self.__description = description
+
+    def set_mana_cost(self, mana_cost: int):
+        if not isinstance(mana_cost, int): raise TypeError('Неподходящий тип данных!')
+
+        self.__mana_cost = mana_cost
+
+    def cast(self, target: HogwartsStudent):
+        if not isinstance(target, HogwartsStudent): raise TypeError('Неподходящий тип данных!')
+
+        return (f'На студента {target} применяется заклинание {self.__name}. \n'
+                f'Эффект: {self.__description}\n'
+                f'Маны затрачено: {self.__mana_cost}')
+
+    def __str__(self):
+        return (f'Название: {self.__name}\n'
+                f'Описание: {self.__description}\n'
+                f'Стоимость (мана): {self.__mana_cost}\n')
