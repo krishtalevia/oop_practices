@@ -67,6 +67,29 @@ class Train(Vehicle):
 class Express(Vehicle):
     pass
 
+# 4
+
+class Animal:
+    pass
+
+class Mammal(Animal):
+    pass
+
+class Fish(Animal):
+    pass
+
+class Cat(Mammal):
+    pass
+
+class Dog(Mammal):
+    pass
+
+class Shark(Fish):
+    pass
+
+class Carp(Fish):
+    pass
+
 class Program:
 
     @staticmethod
