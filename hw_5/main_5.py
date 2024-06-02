@@ -54,6 +54,19 @@ class Artist(Person):
         super().introduce_yourself()
         print('Моя профессия: художник.')
 
+# 3
+class Vehicle:  # Транспортное средство
+    pass
+
+class Automobile(Vehicle):
+    pass
+
+class Train(Vehicle):
+    pass
+
+class Express(Vehicle):
+    pass
+
 class Program:
 
     @staticmethod
