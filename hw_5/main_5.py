@@ -35,14 +35,45 @@ class Person:
     def introduce_yourself(self):
         print(f'Мое имя {self.__name} и мой возраст: {self.__age}.')
 
+class Doctor(Person):
+
+    def introduce_yourself(self):
+        super().introduce_yourself()
+        print('Моя профессия: врач.')
+
+
+class Engineer(Person):
+
+    def introduce_yourself(self):
+        super().introduce_yourself()
+        print('Моя профессия: инженер.')
+
+class Artist(Person):
+
+    def introduce_yourself(self):
+        super().introduce_yourself()
+        print('Моя профессия: художник.')
+
 class Program:
 
     @staticmethod
     def main():
 
+        # Зоопарк
         dog = Dog('Mel Gibson', 'Bulldog')
         dog.make_sound()
+
         bird = Bird('Adam Sandler', 'Pigeon')
         bird.make_sound()
+        print()
+
+        # Люди и их профессии
+        doc = Doctor('Owen Wilson', 50)
+        doc.introduce_yourself()
+        print()
+
+        artist = Artist('Tom Cruise', 60)
+        artist.introduce_yourself()
+        print()
 
 Program.main()
