@@ -12,15 +12,24 @@ class Animal:
 
 class Dog(Animal):
 
+    def __init__(self, name: str, species: str):
+        Animal.__init__(name, species)
+
     def make_sound(self):
         print('Woof')
 
 class Cat(Animal):
 
+    def __init__(self, name: str, species: str):
+        Animal.__init__(name, species)
+
     def make_sound(self):
         print('Meow')
 
 class Bird(Animal):
+
+    def __init__(self, name: str, species: str):
+        Animal.__init__(name, species)
 
     def make_sound(self):
         print('Chirp')
@@ -37,6 +46,9 @@ class Person:
 
 class Doctor(Person):
 
+    def __init__(self, name: str, age: int):
+        Person.__init__(self, name, age)
+
     def introduce_yourself(self):
         super().introduce_yourself()
         print('Моя профессия: врач.')
@@ -44,11 +56,17 @@ class Doctor(Person):
 
 class Engineer(Person):
 
+    def __init__(self, name: str, age: int):
+        Person.__init__(self, name, age)
+
     def introduce_yourself(self):
         super().introduce_yourself()
         print('Моя профессия: инженер.')
 
 class Artist(Person):
+
+    def __init__(self, name: str, age: int):
+        Person.__init__(self, name, age)
 
     def introduce_yourself(self):
         super().introduce_yourself()
@@ -107,6 +125,7 @@ class Program:
         doc = Doctor('Owen Wilson', 50)
         doc.introduce_yourself()
         print()
+
 
         artist = Artist('Tom Cruise', 60)
         artist.introduce_yourself()
