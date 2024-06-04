@@ -79,10 +79,10 @@ class Vehicle:  # Транспортное средство
 class Automobile(Vehicle):
     pass
 
-class Train(Vehicle):
+class Train:
     pass
 
-class Express(Vehicle):
+class Express(Train):
     pass
 
 # 4
